@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480">
+<defs><linearGradient id="bt" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a77ff"/><stop offset="1" stop-color="#2447d6"/></linearGradient>
+<linearGradient id="bm" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2ee0b0"/><stop offset="1" stop-color="#10a883"/></linearGradient>
+<clipPath id="cap"><rect x="110" y="62" width="180" height="350" rx="90"/></clipPath></defs>
+<ellipse cx="200" cy="456" rx="96" ry="14" fill="#0a1630" opacity=".16"/>
+<!-- kaki -->
+<rect x="152" y="396" width="26" height="34" rx="10" fill="#13244a"/><rect x="222" y="396" width="26" height="34" rx="10" fill="#13244a"/>
+<ellipse cx="160" cy="436" rx="27" ry="14" fill="#fff" stroke="#13244a" stroke-width="6"/><ellipse cx="240" cy="436" rx="27" ry="14" fill="#fff" stroke="#13244a" stroke-width="6"/>
+<!-- lengan kiri turun -->
+<path d="M114 276 Q74 296 70 340" fill="none" stroke="#13244a" stroke-width="15" stroke-linecap="round"/>
+<circle cx="70" cy="346" r="17" fill="#fff" stroke="#13244a" stroke-width="6"/>
+<!-- antena -->
+<path d="M200 66V34" stroke="#13244a" stroke-width="8" stroke-linecap="round"/>
+<circle cx="200" cy="24" r="17" fill="#ffc233" opacity=".35"/><circle cx="200" cy="24" r="11" fill="#ffc233" stroke="#13244a" stroke-width="5"/>
+<!-- badan -->
+<g clip-path="url(#cap)"><rect x="100" y="52" width="200" height="190" fill="url(#bt)"/><rect x="100" y="242" width="200" height="180" fill="url(#bm)"/><rect x="100" y="238" width="200" height="8" fill="#fff" opacity=".9"/></g>
+<rect x="110" y="62" width="180" height="350" rx="90" fill="none" stroke="#13244a" stroke-width="7"/>
+<path d="M136 112Q126 150 128 200" fill="none" stroke="#fff" stroke-opacity=".38" stroke-width="11" stroke-linecap="round"/>
+<!-- wajah -->
+<ellipse cx="164" cy="160" rx="21" ry="25" fill="#fff"/><ellipse cx="236" cy="160" rx="21" ry="25" fill="#fff"/>
+<circle cx="168" cy="164" r="12.5" fill="#0a1630"/><circle cx="240" cy="164" r="12.5" fill="#0a1630"/>
+<circle cx="173" cy="158" r="4.5" fill="#fff"/><circle cx="245" cy="158" r="4.5" fill="#fff"/>
+<circle cx="139" cy="203" r="12" fill="#ff8fb1" opacity=".65"/><circle cx="261" cy="203" r="12" fill="#ff8fb1" opacity=".65"/>
+<path d="M176 198Q200 238 224 198Z" fill="#0a1630" stroke="#0a1630" stroke-width="5" stroke-linejoin="round"/>
+<path d="M188 213Q200 224 212 213Q200 205 188 213Z" fill="#ff7a9c"/>
+<!-- jendela website di perut -->
+<rect x="160" y="276" width="80" height="62" rx="9" fill="#fff" stroke="#13244a" stroke-width="5"/>
+<path d="M160 295H240" stroke="#13244a" stroke-width="4"/>
+<circle cx="171" cy="286" r="3.4" fill="#ff6b6b"/><circle cx="182" cy="286" r="3.4" fill="#ffc233"/><circle cx="193" cy="286" r="3.4" fill="#16c79a"/>
+<rect x="170" y="303" width="38" height="7" rx="3.5" fill="#2b5cff"/><rect x="170" y="316" width="58" height="5" rx="2.5" fill="#cbd5f5"/><rect x="170" y="326" width="44" height="5" rx="2.5" fill="#cbd5f5"/>
+<!-- lengan kanan melambai -->
+<path d="M287 262Q330 250 338 206" fill="none" stroke="#13244a" stroke-width="15" stroke-linecap="round"/>
+<circle cx="339" cy="196" r="17" fill="#fff" stroke="#13244a" stroke-width="6"/>
+<path d="M356 170q10 8 12 20M362 158q16 12 18 32" fill="none" stroke="#ffc233" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+<!-- gelembung chat -->
+<g><path d="M284 26H348A22 22 0 0 1 370 48V68A22 22 0 0 1 348 90H310L286 114L291 90H284A22 22 0 0 1 262 68V48A22 22 0 0 1 284 26Z" fill="#fff" stroke="#13244a" stroke-width="6" stroke-linejoin="round"/>
+<circle cx="296" cy="58" r="7" fill="#2b5cff"/><circle cx="316" cy="58" r="7" fill="#16c79a"/><circle cx="336" cy="58" r="7" fill="#ffc233"/></g>
+</svg>
