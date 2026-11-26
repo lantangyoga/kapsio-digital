@@ -13,10 +13,11 @@ window.KAPSIO = {
 
   // Harga di website. "normal" = harga biasa (dicoret), "promo" = harga promo akhir tahun.
   harga: {
-    rintis: { normal: "Rp1.500.000", promo: "Rp299.000" },   // 1 halaman
-    tumbuh: { normal: "Rp3.000.000", promo: "Rp599.000" },   // 5 halaman
-    juara:  { normal: "Rp6.000.000", promo: "Rp1.199.000" }, // 12 halaman
-    jaga:   { normal: "Rp250.000",   promo: "Rp99.000" }     // perawatan per bulan
+    rintis: { normal: "Rp499.000",   promo: "Rp299.000" },   // 1 halaman
+    tumbuh: { normal: "Rp999.000",   promo: "Rp599.000" },   // 5 halaman
+    juara:  { normal: "Rp1.999.000", promo: "Rp1.199.000" }, // 12 halaman
+    toko:   { normal: "Rp2.999.000", promo: "Rp1.799.000" }, // toko online
+    jaga:   { normal: "Rp149.000",   promo: "Rp99.000" }     // perawatan per bulan
   },
 
   // Promo berakhir (hitung mundur di website). Setelah lewat, harga otomatis kembali normal.

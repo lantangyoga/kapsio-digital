@@ -221,6 +221,65 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 .bayar b{display:block;margin-bottom:.3em}.bayar p{margin:0;font-size:.9rem;color:var(--mut)}
 #panel header .av{background:#fff;padding:5px}#panel header .av img{width:100%;height:100%}
 @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+.plans{grid-template-columns:repeat(4,1fr)!important}
+.plan ul{display:flex!important;flex-direction:column;gap:.55em;align-content:start}
+.plan li{display:flex;gap:.55em;line-height:1.4}.plan li:before{margin-right:0!important;flex:none}
+.plan .btn{margin-top:auto}
+.plan{box-shadow:0 10px 30px rgba(11,37,69,.06)}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin:.6em 0 0}.meta span{font-size:.8rem;font-weight:700;background:var(--bg);color:var(--ink);padding:.3em .7em;border-radius:99px}
+.plan.pop .meta span{background:rgba(255,255,255,.12);color:#fff}
+.jaga{margin-top:22px;display:grid;grid-template-columns:1fr auto auto;gap:24px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px 28px;box-shadow:0 10px 30px rgba(11,37,69,.06)}
+.jaga h3{margin:0 0 .3em}.jaga p{margin:0;font-size:.95rem}.jaga .price{font-size:1.6rem;font-weight:800;margin:0}.jaga .price small{font-size:.9rem;font-weight:600;opacity:.7}
+.addon{margin-top:22px;background:var(--bg);border-radius:22px;padding:24px 28px}.addon h3{margin:0 0 14px}
+.addons{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.addons div{background:#fff;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:2px}
+.addons span{color:var(--blue);font-weight:800}.addons small{color:var(--mut);font-size:.82rem;line-height:1.4}
+@media(max-width:1100px){.plans{grid-template-columns:1fr 1fr!important}.addons{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.plans{grid-template-columns:1fr!important}.addons{grid-template-columns:1fr}.jaga{grid-template-columns:1fr;text-align:left}}
+.cd{margin:24px auto 8px!important}
+
+.story{position:relative;height:520vh;background:linear-gradient(180deg,var(--navy2) 0%,#13306e 55%,#0FA3A3 130%);color:#fff}
+.st-pin{position:sticky;top:0;height:100vh;overflow:hidden;display:grid;grid-template-columns:minmax(300px,420px) 1fr;align-items:center;gap:24px;padding:80px clamp(16px,5vw,64px) 40px;max-width:1280px;margin:0 auto}
+.st-caps{display:grid;position:relative;z-index:3}
+.st-cap{grid-area:1/1;opacity:0;transform:translateY(24px);transition:opacity .5s,transform .5s;pointer-events:none}
+.st-cap.on{opacity:1;transform:none;pointer-events:auto}
+.st-cap h2{color:#fff;margin:.3em 0 .4em;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.1}
+.st-cap p{color:#c7d2f5;margin:0 0 1.2em;line-height:1.6}
+.st-lab{display:inline-block;font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#FFD60A}
+.st-scene{position:relative;height:min(70vh,560px);perspective:1600px;--p:0}
+.st-lap{position:absolute;left:50%;top:50%;width:min(100%,640px);aspect-ratio:16/10.5;background:#fff;border-radius:16px;box-shadow:0 40px 90px rgba(0,0,0,.45);transform-style:preserve-3d;transform:translate(-50%,-50%) rotateX(var(--rx,24deg)) rotateY(var(--ry,-28deg)) rotateZ(var(--rz,4deg)) scale(var(--sc,.9));transition:transform .2s linear;overflow:hidden}
+.st-bar{display:flex;gap:6px;align-items:center;padding:9px 12px;background:#eef1f7}.st-bar b{width:10px;height:10px;border-radius:50%;background:#d0d6e4}.st-bar span{margin-left:12px;font-size:12px;color:#6b7590;background:#fff;padding:3px 12px;border-radius:99px}
+.st-page{padding:14px;display:flex;flex-direction:column;gap:12px;height:calc(100% - 30px);background:#f6f7fb;color:#3a1d10}
+.st-page i,.st-phone i{font-style:normal;display:block}
+.w-nav{display:flex;align-items:center;gap:10px}.w-logo{font-weight:800;font-size:15px;color:transparent;background:#dfe3ee;border-radius:6px;transition:all .5s}
+.w-l{width:46px;height:8px;border-radius:9px;background:#dfe3ee}.w-nav .w-l:first-of-type{margin-left:auto}
+.w-hero{flex:1.2;border-radius:12px;background:#e6e9f2;display:grid;grid-template-columns:1.2fr 1fr;gap:12px;padding:16px;transition:background .6s}
+.w-hero>div{display:flex;flex-direction:column;gap:8px;justify-content:center}
+.w-h1{font-weight:800;font-size:clamp(14px,2.2vw,24px);line-height:1.1;color:transparent;background:#d3d8e6;border-radius:6px;transition:all .5s}
+.w-p{font-size:11px;color:transparent;background:#d3d8e6;border-radius:6px;transition:all .5s}
+.w-cta{align-self:flex-start;font-size:11px;font-weight:700;padding:6px 12px;border-radius:99px;background:#cfd5e4;color:transparent;transition:all .5s}
+.w-img{border-radius:10px;background:#d3d8e6;transition:all .6s}
+.w-cards{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.w-c{background:#fff;border-radius:10px;padding:8px;display:flex;flex-direction:column;gap:3px;font-size:11px;opacity:0;transform:translateY(40px) translateZ(60px);transition:all .6s cubic-bezier(.2,.8,.2,1)}
+.w-c:nth-child(2){transition-delay:.1s}.w-c:nth-child(3){transition-delay:.2s}
+.w-c em{font-style:normal;color:#c2410c;font-weight:800}
+.w-ci{flex:1;min-height:30px;border-radius:7px}.w-ci.a{background:linear-gradient(135deg,#7b3f1d,#c98b4f)}.w-ci.b{background:linear-gradient(135deg,#b3123b,#f27a95)}.w-ci.c{background:linear-gradient(135deg,#3f8f3a,#b7e08a)}
+.s1 .w-logo{color:#7b2d12;background:none}.s1 .w-hero{background:linear-gradient(135deg,#ffd9c2,#ffb3a1)}.s1 .w-h1{color:#7b2d12;background:none}.s1 .w-p{color:#8a4a32;background:none}.s1 .w-cta{background:#25d366;color:#fff}.s1 .w-img{background:radial-gradient(circle at 40% 40%,#fff4e8 0,#e8a27c 45%,#9a4a26 100%)}.s1 .w-l{background:#f0c9b5}
+.s2 .w-c{opacity:1;transform:none}
+.st-phone{position:absolute;right:-2%;bottom:2%;width:clamp(120px,19vw,190px);aspect-ratio:9/18.5;background:#111;border-radius:26px;padding:8px;box-shadow:0 30px 60px rgba(0,0,0,.5);opacity:0;transform:translateX(120px) rotateY(-50deg) rotateZ(8deg);transition:all .8s cubic-bezier(.2,.8,.2,1);z-index:2}
+.ph-notch{position:absolute;top:10px;left:50%;width:40%;height:12px;background:#111;border-radius:0 0 10px 10px;transform:translateX(-50%);z-index:2}
+.ph-page{height:100%;border-radius:19px;background:#f6f7fb;padding:20px 8px 8px;display:flex;flex-direction:column;gap:6px;overflow:hidden;color:#3a1d10;font-size:9px}
+.ph-page .w-logo{color:#7b2d12;background:none;font-size:10px}
+.ph-hero{background:linear-gradient(135deg,#ffd9c2,#ffb3a1);border-radius:8px;padding:8px;display:flex;flex-direction:column;gap:5px}.ph-hero .w-h1{font-size:12px;color:#7b2d12;background:none}.ph-hero .w-cta{background:#25d366;color:#fff;font-size:8px;padding:4px 8px}
+.ph-c{background:#fff;border-radius:8px;padding:5px;display:flex;flex-direction:column;gap:2px;flex:1}.ph-c em{font-style:normal;color:#c2410c;font-weight:800}
+.s3 .st-phone{opacity:1;transform:none}
+.st-n{position:absolute;z-index:4;background:#fff;color:#0B2545;border-radius:16px;padding:10px 14px;font-size:13px;line-height:1.35;max-width:240px;box-shadow:0 20px 40px rgba(0,0,0,.35);opacity:0;transform:translateY(30px) scale(.85);transition:all .5s cubic-bezier(.2,.8,.2,1)}
+.st-n b{display:block;color:#128C4A;font-size:12px}
+.n1{left:2%;top:4%}.n2{right:8%;top:-2%;transition-delay:.25s}.n3{left:12%;bottom:0;transition-delay:.5s}
+.s4 .st-n{opacity:1;transform:none}
+.st-dots{position:absolute;right:clamp(10px,2vw,24px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px}.st-dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);transition:all .3s}.st-dots i.on{background:#FFD60A;height:22px;border-radius:9px}
+.st-hint{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);font-size:.85rem;color:#c7d2f5;transition:opacity .4s}
+@media(max-width:860px){.story{height:480vh}.st-pin{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);align-items:stretch;padding:76px 16px 96px;gap:14px}.st-cap h2{font-size:1.4rem}.st-cap p{font-size:.9rem;margin-bottom:.6em}.st-cap .btn{padding:.6em 1.1em}.st-scene{height:auto;min-height:0}.st-lap{width:86%;left:45%;top:46%;aspect-ratio:4/3.5}.w-hero{grid-template-columns:1fr;padding:10px}.w-img{display:none}.w-l{display:none}.w-cards{gap:6px}.w-c{font-size:9px;padding:5px}.st-phone{width:96px;right:1%;top:28%;bottom:auto}.st-n{font-size:10.5px;max-width:170px;padding:7px 10px;border-radius:12px}.n1{left:0;top:0}.n2{right:0;top:14%}.n3{left:2%;top:76%;bottom:auto}.st-dots{display:none}}
+@media(prefers-reduced-motion:reduce){.story{height:auto}.st-pin{position:relative;height:auto}.st-cap{position:relative;opacity:1;transform:none;grid-area:auto;margin-bottom:20px}.st-lap{transform:translate(-50%,-50%)}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Kapsio Digital","description":"Jasa pembuatan website untuk UMKM dengan harga terjangkau.","slogan":"Usaha kecil, tampil besar.","areaServed":"ID","telephone":"+6289683046641","priceRange":"Rp99.000 - Rp6.000.000"}</script>
 </head>
@@ -249,8 +308,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
       </div>
       <ul class="checks">
         <li>Tampilan rapi di HP dan komputer</li>
-        <li>Domain dibantu urus, kamu cukup beli domainnya</li>
-        <li>Pengerjaan umumnya 5 hari kerja setelah bahan lengkap</li>
+        <li>Hosting gratis tahun pertama, domain kami bantu urus</li>
+        <li>Jadi mulai 3 hari kerja setelah bahan lengkap</li>
       </ul>
     </div>
     <div class="device">
@@ -265,6 +324,37 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
       <div class="bubble b">Umumnya 5 hari kerja 🚀</div>
       <img class="mascot" src="assets/maskot-kapsi.svg" alt="" width="170" height="204">
     </div>
+  </div>
+</section>
+
+<section id="cerita" class="story" aria-label="Cerita membangun website">
+  <div class="st-pin">
+    <div class="st-caps">
+      <div class="st-cap" data-s="0"><span class="st-lab">01 · Mulai dari obrolan</span><h2>Ceritakan usahamu, kami rancang kerangkanya.</h2><p>Cukup chat CS. Dari obrolan itu kami susun halaman apa saja yang usahamu butuhkan.</p></div>
+      <div class="st-cap" data-s="1"><span class="st-lab">02 · Warna dan merek</span><h2>Wajah usahamu, bukan template pasaran.</h2><p>Logo, warna, dan huruf disesuaikan dengan karakter usahamu.</p></div>
+      <div class="st-cap" data-s="2"><span class="st-lab">03 · Produk dan harga</span><h2>Produk dan harga tampil jelas.</h2><p>Pelanggan tidak perlu bertanya "berapa harganya?" lagi.</p></div>
+      <div class="st-cap" data-s="3"><span class="st-lab">04 · Rapi di semua layar</span><h2>Rapi di HP, rapi di laptop.</h2><p>Kebanyakan pelangganmu membuka dari HP, jadi tampilannya kami cek di dua-duanya.</p></div>
+      <div class="st-cap" data-s="4"><span class="st-lab">05 · Tayang</span><h2>Website tayang, pesanan masuk ke WhatsApp.</h2><p>Pelanggan tinggal ketuk tombol, chat langsung masuk ke nomormu.</p><a class="btn btn-wa wa-link" data-msg="Halo Kapsio Digital, saya mau website untuk usaha saya.">Mulai sekarang</a></div>
+    </div>
+    <div class="st-scene">
+      <div class="st-lap">
+        <div class="st-bar"><b></b><b></b><b></b><span>dapurmanis.id</span></div>
+        <div class="st-page">
+          <div class="w-nav"><i class="w-logo">Dapur Manis</i><i class="w-l"></i><i class="w-l"></i><i class="w-l"></i></div>
+          <div class="w-hero"><div><i class="w-h1">Kue segar setiap hari</i><i class="w-p">Pesan untuk ulang tahun dan acara keluarga</i><i class="w-cta">Pesan via WhatsApp</i></div><i class="w-img"></i></div>
+          <div class="w-cards"><div class="w-c"><i class="w-ci a"></i><b>Brownies</b><em>Rp85rb</em></div><div class="w-c"><i class="w-ci b"></i><b>Red Velvet</b><em>Rp120rb</em></div><div class="w-c"><i class="w-ci c"></i><b>Bolu Pandan</b><em>Rp65rb</em></div></div>
+        </div>
+      </div>
+      <div class="st-phone">
+        <div class="ph-notch"></div>
+        <div class="ph-page"><i class="w-logo">Dapur Manis</i><div class="ph-hero"><i class="w-h1">Kue segar setiap hari</i><i class="w-cta">Pesan via WhatsApp</i></div><div class="ph-c"><i class="w-ci a"></i><b>Brownies</b><em>Rp85rb</em></div><div class="ph-c"><i class="w-ci b"></i><b>Red Velvet</b><em>Rp120rb</em></div></div>
+      </div>
+      <div class="st-n n1"><b>💬 Chat baru</b>"Kak, brownies 2 kotak buat Sabtu bisa?"</div>
+      <div class="st-n n2"><b>💬 Chat baru</b>"Lihat di Google, mau pesan red velvet"</div>
+      <div class="st-n n3"><b>🔔 Pesanan</b>Bolu pandan × 3</div>
+    </div>
+    <div class="st-dots"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="st-hint">Scroll untuk melihat ↓</div>
   </div>
 </section>
 
@@ -302,55 +392,78 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
   <div class="wrap">
     <div class="center"><span class="eyebrow">Layanan</span><h2>Semua yang usahamu butuhkan online</h2></div>
     <div class="grid3">
-      <div class="card"><div class="ic">📄</div><h3>Rintis · 1 halaman</h3><p>Profil usaha, layanan, kontak, dan tombol WhatsApp dalam satu halaman yang ringkas.</p></div>
-      <div class="card"><div class="ic">🗂️</div><h3>Tumbuh · 5 halaman</h3><p>Beranda, produk, tentang, galeri, dan kontak. Cocok untuk usaha yang ingin tampil lengkap.</p></div>
-      <div class="card"><div class="ic">🏆</div><h3>Juara · 12 halaman</h3><p>Website besar dengan banyak layanan, produk, artikel, dan formulir booking untuk usaha yang serius bersaing.</p></div>
-      <div class="card"><div class="ic">🛠️</div><h3>Jaga · perawatan bulanan</h3><p>Ganti teks dan foto, cek website tetap aktif, dan bantuan teknis saat dibutuhkan.</p></div>
-      <div class="card"><div class="ic">🌐</div><h3>Bantuan domain</h3><p>Kami bantu memilih dan memasang nama domain, jadi kamu tidak perlu pusing urusan teknis.</p></div>
-      <div class="card"><div class="ic">🛍️</div><h3>Katalog produk</h3><p>Pelanggan melihat produk dan harga, lalu memesan langsung lewat WhatsApp.</p></div>
+      <div class="card"><div class="ic">🖥️</div><h3>Website usaha</h3><p>Profil usaha, layanan, harga, dan tombol WhatsApp. Dari 1 sampai 12 halaman, tampil rapi di HP.</p></div>
+      <div class="card"><div class="ic">🛍️</div><h3>Toko online</h3><p>Katalog produk dengan keranjang belanja. Pesanan langsung masuk ke WhatsApp-mu, tanpa potongan marketplace.</p></div>
+      <div class="card"><div class="ic">✨</div><h3>Animasi dan 3D</h3><p>Efek saat di-scroll, kalkulator harga, sampai tur ruangan 360°. Bikin websitemu beda dari pesaing.</p></div>
+      <div class="card"><div class="ic">📍</div><h3>Muncul di Google</h3><p>Dasar optimasi Google dan bantuan merapikan profil Google Maps supaya usahamu mudah ditemukan.</p></div>
+      <div class="card"><div class="ic">🌐</div><h3>Domain dan hosting</h3><p>Kami bantu pilih dan pasang domain. Hosting gratis di tahun pertama, jadi kamu tidak pusing urusan teknis.</p></div>
+      <div class="card"><div class="ic">🛠️</div><h3>Perawatan bulanan</h3><p>Ganti teks, foto, dan harga kapan saja, plus pengecekan rutin supaya website tetap aktif.</p></div>
     </div>
   </div>
 </section>
 
-<section id="paket" class="alt">
+<section id="contoh" class="alt">
   <div class="wrap">
-    <div class="center"><span class="eyebrow">Paket dan harga</span><h2>Harga jelas, tanpa kejutan</h2><p class="lead">Promo akhir tahun, harga jauh lebih hemat dari harga normal. Tidak yakin? Tanya CS, kami bantu pilihkan.</p></div>
+    <div class="center"><span class="eyebrow">Contoh tampilan</span><h2>Gaya website untuk berbagai usaha</h2><p class="lead">Contoh desain dengan nama usaha fiktif, bukan website klien. Beberapa memakai tambahan animasi atau 3D. Hasil akhirnya disesuaikan dengan brand dan bahan milikmu.</p></div>
+    <div class="cf" id="cf" aria-roledescription="carousel"><div class="cf-st"><a class="cf-i" href="demos/01-logistik.html" data-i="0"><img src="assets/porto/01-logistik.jpg" alt="Tampilan depan contoh Logistik" loading="lazy"><span>Logistik</span></a><a class="cf-i" href="demos/02-kopi.html" data-i="1"><img src="assets/porto/02-kopi.jpg" alt="Tampilan depan contoh Kedai Kopi" loading="lazy"><span>Kedai Kopi</span></a><a class="cf-i" href="demos/03-detailing.html" data-i="2"><img src="assets/porto/03-detailing.jpg" alt="Tampilan depan contoh Cuci & Detailing Mobil" loading="lazy"><span>Cuci & Detailing Mobil</span></a><a class="cf-i" href="demos/04-perumahan.html" data-i="3"><img src="assets/porto/04-perumahan.jpg" alt="Tampilan depan contoh Perumahan" loading="lazy"><span>Perumahan</span></a><a class="cf-i" href="demos/05-travel.html" data-i="4"><img src="assets/porto/05-travel.jpg" alt="Tampilan depan contoh Travel Umroh" loading="lazy"><span>Travel Umroh</span></a><a class="cf-i" href="demos/06-fotografer.html" data-i="5"><img src="assets/porto/06-fotografer.jpg" alt="Tampilan depan contoh Fotografer Wedding" loading="lazy"><span>Fotografer Wedding</span></a><a class="cf-i" href="demos/07-barbershop.html" data-i="6"><img src="assets/porto/07-barbershop.jpg" alt="Tampilan depan contoh Barbershop" loading="lazy"><span>Barbershop</span></a><a class="cf-i" href="demos/08-salon.html" data-i="7"><img src="assets/porto/08-salon.jpg" alt="Tampilan depan contoh Salon & Spa" loading="lazy"><span>Salon & Spa</span></a><a class="cf-i" href="demos/09-florist.html" data-i="8"><img src="assets/porto/09-florist.jpg" alt="Tampilan depan contoh Florist" loading="lazy"><span>Florist</span></a><a class="cf-i" href="demos/10-tas.html" data-i="9"><img src="assets/porto/10-tas.jpg" alt="Tampilan depan contoh Tas Kulit" loading="lazy"><span>Tas Kulit</span></a><a class="cf-i" href="demos/11-busana.html" data-i="10"><img src="assets/porto/11-busana.jpg" alt="Tampilan depan contoh Busana Muslim" loading="lazy"><span>Busana Muslim</span></a><a class="cf-i" href="demos/12-kontraktor.html" data-i="11"><img src="assets/porto/12-kontraktor.jpg" alt="Tampilan depan contoh Kontraktor" loading="lazy"><span>Kontraktor</span></a><a class="cf-i" href="demos/13-skincare.html" data-i="12"><img src="assets/porto/13-skincare.jpg" alt="Tampilan depan contoh Skincare" loading="lazy"><span>Skincare</span></a><a class="cf-i" href="demos/14-gym.html" data-i="13"><img src="assets/porto/14-gym.jpg" alt="Tampilan depan contoh Gym" loading="lazy"><span>Gym</span></a><a class="cf-i" href="demos/15-bimbel.html" data-i="14"><img src="assets/porto/15-bimbel.jpg" alt="Tampilan depan contoh Bimbel" loading="lazy"><span>Bimbel</span></a><a class="cf-i" href="demos/16-restoran.html" data-i="15"><img src="assets/porto/16-restoran.jpg" alt="Tampilan depan contoh Rumah Makan" loading="lazy"><span>Rumah Makan</span></a><a class="cf-i" href="demos/17-klinik-gigi.html" data-i="16"><img src="assets/porto/17-klinik-gigi.jpg" alt="Tampilan depan contoh Klinik Gigi" loading="lazy"><span>Klinik Gigi</span></a><a class="cf-i" href="demos/18-catering.html" data-i="17"><img src="assets/porto/18-catering.jpg" alt="Tampilan depan contoh Catering" loading="lazy"><span>Catering</span></a><a class="cf-i" href="demos/19-laundry.html" data-i="18"><img src="assets/porto/19-laundry.jpg" alt="Tampilan depan contoh Laundry" loading="lazy"><span>Laundry</span></a><a class="cf-i" href="demos/20-klinik-anak.html" data-i="19"><img src="assets/porto/20-klinik-anak.jpg" alt="Tampilan depan contoh Klinik Anak" loading="lazy"><span>Klinik Anak</span></a><a class="cf-i" href="demos/sekolah-cendekia.html" data-i="20"><img src="assets/porto/sekolah-cendekia.jpg" alt="Tampilan depan contoh Sekolah (tur 360°)" loading="lazy"><span>Sekolah (tur 360°)</span></a><a class="cf-i" href="demos/bengkel-prima-motor.html" data-i="21"><img src="assets/porto/bengkel-prima-motor.jpg" alt="Tampilan depan contoh Bengkel (tur 360°)" loading="lazy"><span>Bengkel (tur 360°)</span></a><a class="cf-i" href="demos/toko-buku-lembaran.html" data-i="22"><img src="assets/porto/toko-buku-lembaran.jpg" alt="Tampilan depan contoh Toko Buku" loading="lazy"><span>Toko Buku</span></a></div>
+<button class="cf-b cf-p" type="button" aria-label="Sebelumnya">&#8249;</button><button class="cf-b cf-n" type="button" aria-label="Berikutnya">&#8250;</button></div>
+<p class="cf-cap"><b id="cfName"></b> · klik tampilan di tengah untuk membuka websitenya · <a href="portofolio.html">lihat semua 23 contoh</a></p>
+  </div>
+</section>
+
+<section id="paket">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">Paket dan harga</span><h2>Harga jelas, tanpa kejutan</h2><p class="lead">Harga promo berlaku sampai 31 Desember 2026. Mulai Januari, harga kembali ke harga normal yang dicoret. Bingung pilih? Tanya CS, kami bantu pilihkan.</p></div>
+    <div class="cd" id="cd" hidden><b>Promo akhir tahun berakhir dalam</b><span id="cd_d">0<small>HARI</small></span><span id="cd_h">0<small>JAM</small></span><span id="cd_m">0<small>MENIT</small></span><span id="cd_s">0<small>DETIK</small></span></div>
     <div class="plans">
       <div class="plan">
-        
         <h3>Rintis</h3><p class="mut">1 halaman · usaha yang baru mulai online</p>
         <div class="price"><s data-hn="rintis"></s><span data-hp="rintis"></span><em class="save" data-hs="rintis"></em></div>
-        <ul><li>1 halaman lengkap</li><li>Tombol WhatsApp</li><li>Tampil rapi di HP</li><li>Revisi sesuai kesepakatan</li></ul>
-        <a class="btn btn-blue wa-link" data-msg="Halo Kapsio Digital, saya tertarik paket Rintis (1 halaman).">Tanya paket ini</a>
+        <p class="meta"><span>⏱ 3 hari kerja</span><span>✎ 2x revisi</span></p>
+        <ul><li>Profil, layanan, harga, dan kontak</li><li>Tombol WhatsApp</li><li>Tampil rapi di HP</li><li>Hosting gratis tahun pertama</li></ul>
+        <a class="btn btn-blue wa-link" data-msg="Halo Kapsio Digital, saya tertarik paket Rintis (1 halaman).">Pilih Rintis</a>
       </div>
       <div class="plan pop">
-        <span class="tag">PALING DIMINATI</span>
-        <h3>Tumbuh</h3><p class="mut">5 halaman · tampil lengkap dan meyakinkan</p>
+        <span class="tag">PALING DIMINATI</span><h3>Tumbuh</h3><p class="mut">5 halaman · tampil lengkap dan meyakinkan</p>
         <div class="price"><s data-hn="tumbuh"></s><span data-hp="tumbuh"></span><em class="save" data-hs="tumbuh"></em></div>
-        <ul><li>Beranda, produk, tentang, galeri, kontak</li><li>Tombol WhatsApp di setiap halaman</li><li>Dasar optimasi Google</li><li>Revisi sesuai kesepakatan</li></ul>
-        <a class="btn btn-wa wa-link" data-msg="Halo Kapsio Digital, saya tertarik paket Tumbuh (5 halaman).">Tanya paket ini</a>
+        <p class="meta"><span>⏱ 7 hari kerja</span><span>✎ 3x revisi</span></p>
+        <ul><li>Beranda, produk, tentang, galeri, kontak</li><li>Tombol WhatsApp di setiap halaman</li><li>Dasar optimasi Google</li><li>Animasi ringan saat di-scroll</li><li>Hosting gratis tahun pertama</li></ul>
+        <a class="btn btn-wa wa-link" data-msg="Halo Kapsio Digital, saya tertarik paket Tumbuh (5 halaman).">Pilih Tumbuh</a>
       </div>
       <div class="plan">
-        <span class="tag">LENGKAP</span>
-        <h3>Juara</h3><p class="mut">12 halaman · tampil maksimal dan siap bersaing</p>
+        <span class="tag">LENGKAP</span><h3>Juara</h3><p class="mut">12 halaman · tampil maksimal dan siap bersaing</p>
         <div class="price"><s data-hn="juara"></s><span data-hp="juara"></span><em class="save" data-hs="juara"></em></div>
-        <ul><li>12 halaman (layanan, produk, galeri, artikel, FAQ, dan lainnya)</li><li>Formulir pesan atau booking</li><li>Peta lokasi dan jam buka</li><li>Optimasi Google lanjutan</li><li>Revisi lebih leluasa</li></ul>
-        <a class="btn btn-blue wa-link" data-msg="Halo Kapsio Digital, saya tertarik paket Juara (12 halaman).">Tanya paket ini</a>
+        <p class="meta"><span>⏱ 14 hari kerja</span><span>✎ 5x revisi</span></p>
+        <ul><li>12 halaman (layanan, produk, artikel, FAQ, dll.)</li><li>Formulir pesan atau booking</li><li>Peta lokasi dan jam buka</li><li>Optimasi Google lanjutan</li><li>Hosting gratis tahun pertama</li></ul>
+        <a class="btn btn-blue wa-link" data-msg="Halo Kapsio Digital, saya tertarik paket Juara (12 halaman).">Pilih Juara</a>
       </div>
       <div class="plan">
-        
-        <h3>Jaga</h3><p class="mut">Perawatan bulanan agar website tetap terawat</p>
-        <div class="price"><s data-hn="jaga"></s><span data-hp="jaga"></span><small>per bulan</small><em class="save" data-hs="jaga"></em></div>
-        <ul><li>Update teks dan foto</li><li>Pengecekan website aktif</li><li>Bantuan teknis</li><li>Bisa dihentikan kapan saja</li></ul>
-        <a class="btn btn-blue wa-link" data-msg="Halo Kapsio Digital, saya mau tanya paket perawatan Jaga.">Tanya paket ini</a>
+        <span class="tag">BARU</span><h3>Toko</h3><p class="mut">Toko online · jualan langsung dari website</p>
+        <div class="price"><s data-hn="toko"></s><span data-hp="toko"></span><em class="save" data-hs="toko"></em></div>
+        <p class="meta"><span>⏱ 14 hari kerja</span><span>✎ 5x revisi</span></p>
+        <ul><li>Katalog sampai 50 produk dengan kategori</li><li>Keranjang belanja, pesanan masuk ke WhatsApp</li><li>Halaman produk, tentang, dan kontak</li><li>Ongkir dan cara bayar dijelaskan jelas</li><li>Hosting gratis tahun pertama</li></ul>
+        <a class="btn btn-blue wa-link" data-msg="Halo Kapsio Digital, saya tertarik paket Toko (toko online).">Pilih Toko</a>
       </div>
     </div>
-    <div class="cd" id="cd" hidden><b>Promo akhir tahun berakhir dalam</b><span id="cd_d">0<small>HARI</small></span><span id="cd_h">0<small>JAM</small></span><span id="cd_m">0<small>MENIT</small></span><span id="cd_s">0<small>DETIK</small></span></div>
-    <p class="note">Nama domain dibeli terpisah oleh pemilik usaha, kami bantu prosesnya. Harga dapat berubah, konfirmasi dengan CS.</p>
+    <div class="jaga">
+      <div><h3>Jaga · perawatan bulanan</h3><p class="mut">Update teks, foto, dan harga · pengecekan website aktif · bantuan teknis · hosting tetap jalan setelah tahun pertama · bisa berhenti kapan saja</p></div>
+      <div class="price"><s data-hn="jaga"></s><span data-hp="jaga"></span><small>/bulan</small><em class="save" data-hs="jaga"></em></div>
+      <a class="btn btn-blue wa-link" data-msg="Halo Kapsio Digital, saya mau tanya paket perawatan Jaga.">Tanya Jaga</a>
+    </div>
+    <div class="addon">
+      <h3>Tambahan sesuai kebutuhan</h3>
+      <div class="addons">
+        <div><b>Efek scroll dan animasi</b><span>mulai Rp300.000</span><small>Seperti contoh kedai kopi, travel, dan florist</small></div>
+        <div><b>Fitur interaktif</b><span>mulai Rp500.000</span><small>Kalkulator harga, booking jadwal, simulasi</small></div>
+        <div><b>Tur 3D / 360°</b><span>mulai Rp1.500.000</span><small>Seperti contoh sekolah, bengkel, dan toko buku</small></div>
+        <div><b>Halaman tambahan</b><span>Rp100.000 / halaman</span><small>Untuk paket Rintis dan Tumbuh</small></div>
+      </div>
+    </div>
+    <p class="note">Harga paket sudah termasuk desain, pengerjaan, revisi, dan hosting tahun pertama. Yang dibayar terpisah hanya nama domain (umumnya Rp150–250 ribu per tahun), kami bantu belikan. Foto dan teks disiapkan pemilik usaha, kami bantu rapikan.</p>
   </div>
 </section>
 
-<section id="proses">
+<section id="proses" class="alt">
   <div class="wrap center">
     <span class="eyebrow">Cara kerja</span>
     <h2>Dari chat pertama sampai website tayang</h2>
@@ -363,16 +476,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
   </div>
 </section>
 
-<section class="alt">
-  <div class="wrap">
-    <div class="center"><span class="eyebrow">Contoh tampilan</span><h2>Gaya website untuk berbagai usaha</h2><p class="lead">Ini ilustrasi contoh desain, bukan website klien. Hasil akhir disesuaikan dengan brand dan bahan milikmu.</p></div>
-    <div class="cf" id="cf" aria-roledescription="carousel"><div class="cf-st"><a class="cf-i" href="demos/01-logistik.html" data-i="0"><img src="assets/porto/01-logistik.jpg" alt="Tampilan depan contoh Logistik" loading="lazy"><span>Logistik</span></a><a class="cf-i" href="demos/02-kopi.html" data-i="1"><img src="assets/porto/02-kopi.jpg" alt="Tampilan depan contoh Kedai Kopi" loading="lazy"><span>Kedai Kopi</span></a><a class="cf-i" href="demos/03-detailing.html" data-i="2"><img src="assets/porto/03-detailing.jpg" alt="Tampilan depan contoh Cuci & Detailing Mobil" loading="lazy"><span>Cuci & Detailing Mobil</span></a><a class="cf-i" href="demos/04-perumahan.html" data-i="3"><img src="assets/porto/04-perumahan.jpg" alt="Tampilan depan contoh Perumahan" loading="lazy"><span>Perumahan</span></a><a class="cf-i" href="demos/05-travel.html" data-i="4"><img src="assets/porto/05-travel.jpg" alt="Tampilan depan contoh Travel Umroh" loading="lazy"><span>Travel Umroh</span></a><a class="cf-i" href="demos/06-fotografer.html" data-i="5"><img src="assets/porto/06-fotografer.jpg" alt="Tampilan depan contoh Fotografer Wedding" loading="lazy"><span>Fotografer Wedding</span></a><a class="cf-i" href="demos/07-barbershop.html" data-i="6"><img src="assets/porto/07-barbershop.jpg" alt="Tampilan depan contoh Barbershop" loading="lazy"><span>Barbershop</span></a><a class="cf-i" href="demos/08-salon.html" data-i="7"><img src="assets/porto/08-salon.jpg" alt="Tampilan depan contoh Salon & Spa" loading="lazy"><span>Salon & Spa</span></a><a class="cf-i" href="demos/09-florist.html" data-i="8"><img src="assets/porto/09-florist.jpg" alt="Tampilan depan contoh Florist" loading="lazy"><span>Florist</span></a><a class="cf-i" href="demos/10-tas.html" data-i="9"><img src="assets/porto/10-tas.jpg" alt="Tampilan depan contoh Tas Kulit" loading="lazy"><span>Tas Kulit</span></a><a class="cf-i" href="demos/11-busana.html" data-i="10"><img src="assets/porto/11-busana.jpg" alt="Tampilan depan contoh Busana Muslim" loading="lazy"><span>Busana Muslim</span></a><a class="cf-i" href="demos/12-kontraktor.html" data-i="11"><img src="assets/porto/12-kontraktor.jpg" alt="Tampilan depan contoh Kontraktor" loading="lazy"><span>Kontraktor</span></a><a class="cf-i" href="demos/13-skincare.html" data-i="12"><img src="assets/porto/13-skincare.jpg" alt="Tampilan depan contoh Skincare" loading="lazy"><span>Skincare</span></a><a class="cf-i" href="demos/14-gym.html" data-i="13"><img src="assets/porto/14-gym.jpg" alt="Tampilan depan contoh Gym" loading="lazy"><span>Gym</span></a><a class="cf-i" href="demos/15-bimbel.html" data-i="14"><img src="assets/porto/15-bimbel.jpg" alt="Tampilan depan contoh Bimbel" loading="lazy"><span>Bimbel</span></a><a class="cf-i" href="demos/16-restoran.html" data-i="15"><img src="assets/porto/16-restoran.jpg" alt="Tampilan depan contoh Rumah Makan" loading="lazy"><span>Rumah Makan</span></a><a class="cf-i" href="demos/17-klinik-gigi.html" data-i="16"><img src="assets/porto/17-klinik-gigi.jpg" alt="Tampilan depan contoh Klinik Gigi" loading="lazy"><span>Klinik Gigi</span></a><a class="cf-i" href="demos/18-catering.html" data-i="17"><img src="assets/porto/18-catering.jpg" alt="Tampilan depan contoh Catering" loading="lazy"><span>Catering</span></a><a class="cf-i" href="demos/19-laundry.html" data-i="18"><img src="assets/porto/19-laundry.jpg" alt="Tampilan depan contoh Laundry" loading="lazy"><span>Laundry</span></a><a class="cf-i" href="demos/20-klinik-anak.html" data-i="19"><img src="assets/porto/20-klinik-anak.jpg" alt="Tampilan depan contoh Klinik Anak" loading="lazy"><span>Klinik Anak</span></a><a class="cf-i" href="demos/sekolah-cendekia.html" data-i="20"><img src="assets/porto/sekolah-cendekia.jpg" alt="Tampilan depan contoh Sekolah (tur 360°)" loading="lazy"><span>Sekolah (tur 360°)</span></a><a class="cf-i" href="demos/bengkel-prima-motor.html" data-i="21"><img src="assets/porto/bengkel-prima-motor.jpg" alt="Tampilan depan contoh Bengkel (tur 360°)" loading="lazy"><span>Bengkel (tur 360°)</span></a><a class="cf-i" href="demos/toko-buku-lembaran.html" data-i="22"><img src="assets/porto/toko-buku-lembaran.jpg" alt="Tampilan depan contoh Toko Buku" loading="lazy"><span>Toko Buku</span></a></div>
-<button class="cf-b cf-p" type="button" aria-label="Sebelumnya">&#8249;</button><button class="cf-b cf-n" type="button" aria-label="Berikutnya">&#8250;</button></div>
-<p class="cf-cap"><b id="cfName"></b> · klik tampilan di tengah untuk membuka websitenya · <a href="portofolio.html">lihat semua 23 contoh</a></p>
-  </div>
-</section>
 
-<section id="bayar" class="alt">
+<section id="bayar">
   <div class="wrap center">
     <span class="eyebrow">Pembayaran</span>
     <h2>Bayar aman, jelas, dan bertahap</h2>
@@ -388,16 +493,18 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
   </div>
 </section>
 
-<section id="faq">
+<section id="faq" class="alt">
   <div class="wrap" style="max-width:760px">
     <div class="center"><span class="eyebrow">Tanya jawab</span><h2>Pertanyaan yang sering muncul</h2></div>
     <div style="margin-top:32px">
-      <details><summary>Berapa lama website jadi?</summary><p>Umumnya sekitar 5 hari kerja untuk website 1 halaman setelah bahan lengkap. Paket yang lebih besar menyesuaikan.</p></details>
+      <details><summary>Berapa lama website jadi?</summary><p>Dihitung sejak bahan lengkap: Rintis 3 hari kerja, Tumbuh 7 hari kerja, Juara dan Toko 14 hari kerja. Tambahan animasi atau 3D bisa menambah waktu, CS beri perkiraan sebelum mulai.</p></details>
+      <details><summary>Hosting itu apa, apakah saya harus bayar?</summary><p>Hosting adalah tempat websitemu disimpan supaya bisa dibuka orang. Tahun pertama gratis dari kami. Setelah itu cukup berlangganan Jaga, atau kami bantu pindahkan ke hosting milikmu sendiri.</p></details>
+      <details><summary>Bisa minta efek animasi atau 3D seperti di contoh?</summary><p>Bisa, sebagai tambahan di atas paket. Efek scroll mulai Rp300 ribu, fitur interaktif mulai Rp500 ribu, dan tur 3D atau 360° mulai Rp1,5 juta, tergantung kerumitannya.</p></details>
       <details><summary>Saya belum punya logo atau foto bagus, bagaimana?</summary><p>Tidak apa-apa. Kirim yang ada dulu, kami bantu merapikan dan memberi saran bahan apa yang perlu ditambah.</p></details>
       <details><summary>Perlu beli domain sendiri?</summary><p>Ya, nama domain dibeli oleh pemilik usaha supaya menjadi milikmu. Kami bantu memilih dan memasangnya.</p></details>
-      <details><summary>Bisa ubah isi website setelah jadi?</summary><p>Bisa. Lewat paket Perawatan, kami yang mengubah teks dan foto sesuai permintaanmu.</p></details>
+      <details><summary>Bisa ubah isi website setelah jadi?</summary><p>Bisa. Lewat paket Jaga, kami yang mengubah teks dan foto sesuai permintaanmu.</p></details>
       <details><summary>Pembayarannya bagaimana?</summary><p>DP 50% di awal, pelunasan 50% setelah kamu puas dengan hasilnya dan sebelum website tayang. Bisa lewat QRIS, transfer bank, atau e-wallet, dan kamu mendapat invoice serta kuitansi di setiap pembayaran.</p></details>
-      <details><summary>Apakah ada biaya tersembunyi?</summary><p>Tidak ada. Harga paket sudah termasuk pengerjaan dan revisi sesuai kesepakatan. Yang dibayar terpisah hanya nama domain, dan kami beri tahu nominalnya sebelum kamu membeli.</p></details>
+      <details><summary>Apakah ada biaya tersembunyi?</summary><p>Tidak ada. Harga paket sudah termasuk pengerjaan dan revisi sesuai kesepakatan. Hosting tahun pertama juga sudah termasuk. Yang dibayar terpisah hanya nama domain, dan kami beri tahu nominalnya sebelum kamu membeli.</p></details>
       <details><summary>Apakah data yang saya kirim aman?</summary><p>Nama dan nomor WhatsApp dari formulir hanya dipakai untuk menghubungi kamu soal konsultasi. Kami tidak menjual atau membagikannya, dan kami tidak pernah meminta PIN atau kode OTP.</p></details>
       <details><summary>Bagaimana cara mulai?</summary><p>Cukup ketuk tombol Chat CS. Ceritakan usahamu, dan kami bantu dari sana.</p></details>
     </div>
@@ -419,7 +526,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
       <label for="f_wa">Nomor WhatsApp</label><input id="f_wa" name="wa" type="tel" inputmode="tel" autocomplete="tel" required maxlength="20" placeholder="0812xxxxxxx">
       <label for="f_usaha">Jenis usaha</label><input id="f_usaha" name="usaha" maxlength="80" placeholder="Contoh: toko kue, bengkel, kontraktor">
       <label for="f_butuh">Yang kamu butuhkan</label>
-      <select id="f_butuh" name="butuh"><option>Rintis (1 halaman)</option><option>Tumbuh (5 halaman)</option><option>Juara (12 halaman)</option><option>Katalog produk</option><option>Jaga (perawatan website)</option><option>Audit gratis</option><option>Belum tahu, mau konsultasi dulu</option></select>
+      <select id="f_butuh" name="butuh"><option>Rintis (1 halaman)</option><option>Tumbuh (5 halaman)</option><option>Juara (12 halaman)</option><option>Toko online</option><option>Animasi atau 3D</option><option>Jaga (perawatan website)</option><option>Audit gratis</option><option>Belum tahu, mau konsultasi dulu</option></select>
       <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button class="btn btn-wa" type="submit">Kirim dan lanjut ke WhatsApp</button>
       <p id="fmsg" role="status"></p>
@@ -493,9 +600,9 @@ document.querySelectorAll(".wa-link").forEach(function(a){
 /* widget chat CS */
 var panel=$("#panel"),teaser=$("#teaser"),msgs=$("#msgs"),chips=$("#chips");
 var QA=[
- {q:"Berapa harga website?",a:"Promo akhir tahun: Rintis (1 halaman) "+hp("rintis")+", Tumbuh (5 halaman) "+hp("tumbuh")+", Juara (12 halaman) "+hp("juara")+". Perawatan Jaga "+hp("jaga")+" per bulan. Nama domain dibeli terpisah. Bayar DP 50% dulu, sisanya setelah kamu puas."},
- {q:"Apa bedanya tiap paket?",a:"Rintis 1 halaman untuk yang baru mulai. Tumbuh 5 halaman untuk tampil lengkap. Juara 12 halaman untuk yang ingin tampil maksimal, ada formulir booking dan optimasi Google lanjutan."},
- {q:"Berapa lama jadinya?",a:"Umumnya sekitar 5 hari kerja untuk 1 halaman, setelah bahan seperti logo, foto, dan harga lengkap. Paket lebih besar menyesuaikan, CS beri perkiraan sebelum mulai."},
+ {q:"Berapa harga website?",a:"Harga promo sampai 31 Desember: Rintis (1 halaman) "+hp("rintis")+", Tumbuh (5 halaman) "+hp("tumbuh")+", Juara (12 halaman) "+hp("juara")+", Toko online "+hp("toko")+". Semua sudah termasuk hosting tahun pertama. Perawatan Jaga "+hp("jaga")+" per bulan. Nama domain dibeli terpisah. Bayar DP 50% dulu, sisanya setelah kamu puas."},
+ {q:"Apa bedanya tiap paket?",a:"Rintis 1 halaman untuk yang baru mulai. Tumbuh 5 halaman untuk tampil lengkap, sudah ada animasi ringan. Juara 12 halaman dengan formulir booking dan optimasi Google lanjutan. Toko untuk jualan online dengan keranjang belanja yang masuk ke WhatsApp. Efek animasi, fitur interaktif, dan 3D bisa ditambahkan di paket mana saja."},
+ {q:"Berapa lama jadinya?",a:"Sejak bahan lengkap: Rintis 3 hari kerja, Tumbuh 7 hari kerja, Juara dan Toko 14 hari kerja. Kalau ada tambahan animasi atau 3D, CS beri perkiraan sebelum mulai."},
  {q:"Saya belum punya logo dan foto",a:"Tidak masalah. Kirim yang ada dulu, kami bantu merapikan dan beri saran bahan tambahan."},
  {q:"Bisa untuk jualan produk?",a:"Bisa. Kami buatkan katalog produk, pelanggan memesan langsung lewat tombol WhatsApp."},
  {q:"Bayarnya gimana?",a:"DP 50% di awal, pelunasan setelah kamu puas dengan hasilnya. Bisa QRIS, transfer bank, atau e-wallet, dan ada invoice serta kuitansi di setiap pembayaran."},
@@ -578,6 +685,17 @@ cf.addEventListener('mouseenter',function(){clearInterval(t)});cf.addEventListen
 var sx=null;cf.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;clearInterval(t)},{passive:true});
 cf.addEventListener('touchend',function(e){if(sx==null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)go(cur+(dx<0?1:-1));sx=null;auto()});
 draw();auto()})();
+</script>
+<script>
+(function(){var sec=document.getElementById('cerita');if(!sec)return;var sc=sec.querySelector('.st-scene'),lap=sec.querySelector('.st-lap'),caps=sec.querySelectorAll('.st-cap'),dots=sec.querySelectorAll('.st-dots i'),hint=sec.querySelector('.st-hint'),last=-1;
+var red=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function L(a,b,t){return a+(b-a)*t}
+function tick(){var r=sec.getBoundingClientRect(),tot=sec.offsetHeight-innerHeight,p=Math.min(1,Math.max(0,-r.top/tot));if(red)p=1;
+var st=Math.min(4,Math.floor(p*5.0001));
+var e=Math.min(1,p*1.25);lap.style.setProperty('--rx',L(28,4,e)+'deg');lap.style.setProperty('--ry',L(-34,-6,e)+'deg');lap.style.setProperty('--rz',L(6,0,e)+'deg');lap.style.setProperty('--sc',L(.82,st>=3?.86:1,e));
+if(st!==last){last=st;for(var i=1;i<=4;i++)sc.classList.toggle('s'+i,st>=i);caps.forEach(function(c,i){c.classList.toggle('on',i===st)});dots.forEach(function(d,i){d.classList.toggle('on',i===st)})}
+hint.style.opacity=p>.04?0:1}
+addEventListener('scroll',function(){requestAnimationFrame(tick)},{passive:true});addEventListener('resize',tick);tick()})();
 </script>
 </body>
 </html>
