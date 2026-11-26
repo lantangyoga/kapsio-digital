@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bengkel Prima Motor 3D</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{--acc:#ff6b1a;--ink:#16181c;--paper:#f2f2ef}
+*{box-sizing:border-box}
+html,body{margin:0;background:#16181c;color:#fff;font-family:Inter,system-ui,sans-serif}
+#c{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:pan-y;cursor:grab;z-index:0}
+body.drag #c{cursor:grabbing}
+#spacer{position:relative;z-index:1;pointer-events:none}
+.top{position:fixed;left:0;right:0;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px clamp(12px,3vw,28px);background:rgba(18,18,22,.5);backdrop-filter:blur(10px)}
+.brand{font-family:'Barlow Condensed',Inter,sans-serif;font-size:clamp(20px,3vw,26px);font-weight:700;letter-spacing:.5px;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+.brand span{color:var(--acc)}
+#steps{display:flex;gap:4px;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);padding:5px;border-radius:999px}
+#steps button{border:0;background:transparent;color:#fff;font:600 13px Inter,system-ui,sans-serif;padding:9px 13px;border-radius:999px;cursor:pointer;transition:background .3s,color .3s;white-space:nowrap}
+#steps button.on{background:var(--acc);color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:12px 20px;border-radius:999px;font:700 15px Inter,system-ui,sans-serif;text-decoration:none;border:0;cursor:pointer;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}.btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.acc{background:var(--acc);color:var(--ink)}
+#pbar{position:fixed;left:0;top:0;height:4px;width:0;background:var(--acc);z-index:6}
+#caps{pointer-events:none;position:fixed;left:clamp(12px,4vw,56px);top:clamp(78px,13vh,130px);width:min(440px,calc(100vw - 24px));z-index:2;display:grid}
+.cap{pointer-events:none;grid-area:1/1;align-self:start;background:rgba(15,15,18,.62);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:clamp(18px,3vw,26px);display:flex;flex-direction:column;gap:10px;align-items:flex-start;transition:opacity .15s;opacity:0}
+.cap .lab{color:var(--acc);font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase}
+.cap h2{margin:0;font-family:'Barlow Condensed',Inter,sans-serif;font-size:clamp(26px,4vw,42px);line-height:1.04}
+.cap p{margin:0;line-height:1.6;color:#e6e6ea}
+#hint{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:4;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);padding:10px 16px;border-radius:999px;font-size:13px;transition:opacity .5s;text-align:center;pointer-events:none;width:max-content;max-width:calc(100vw - 24px)}
+.tap{position:fixed;right:clamp(12px,3vw,28px);bottom:22px;z-index:3;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);border-radius:999px;padding:9px 14px;font-size:12px;display:flex;gap:8px;align-items:center;pointer-events:none}
+.tap i{width:16px;height:16px;border-radius:50%;background:var(--acc);display:inline-block;box-shadow:0 0 0 4px rgba(255,255,255,.25)}
+.after{position:relative;z-index:4;background:var(--paper);color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:clamp(56px,8vw,96px) clamp(16px,4vw,40px)}
+.g{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.card{background:#fff;border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:8px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+.after h2{font-family:'Barlow Condensed',Inter,sans-serif;font-size:clamp(30px,5vw,48px);margin:0 0 20px;line-height:1.05}
+.foot{background:var(--ink);color:#bbb;padding:24px clamp(16px,4vw,40px);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:14px}
+.ov{position:fixed;inset:0;z-index:30;background:rgba(10,10,12,.6);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;pointer-events:none;transition:opacity .3s}
+.ov.show{opacity:1;pointer-events:auto}
+.modal{position:relative;background:var(--paper);color:var(--ink);border-radius:26px;width:min(560px,100%);max-height:calc(100dvh - 32px);overflow:auto;padding:clamp(22px,4vw,34px);display:flex;flex-direction:column;gap:12px;transform:translateY(24px) scale(.97);transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.ov.show .modal{transform:none}
+.x{position:absolute;right:14px;top:14px;width:44px;height:44px;border-radius:50%;border:0;background:rgba(0,0,0,.07);font-size:18px;cursor:pointer;color:var(--ink)}
+#mIcon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff}
+#mCat{color:var(--acc2,var(--ink));opacity:.7;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700}
+#mTitle{margin:0;font-family:'Barlow Condensed',Inter,sans-serif;font-size:clamp(26px,4vw,34px);line-height:1.1}
+#mDesc{margin:0;line-height:1.7}
+#mMeta{display:flex;flex-wrap:wrap;gap:8px}#mMeta span{background:rgba(0,0,0,.06);border-radius:999px;padding:6px 12px;font-size:13px}
+#mPrice{font-size:26px;font-weight:800}
+#mWa{background:var(--ink);color:var(--paper);align-self:flex-start}
+.err{position:fixed;inset:0;display:none;align-items:center;justify-content:center;text-align:center;padding:24px;z-index:50;background:#16181c}
+@media(max-width:820px){#steps{display:none}.tap{display:none}#caps{top:auto;bottom:24px}#hint{top:74px;bottom:auto}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="c" aria-label="Tur 3D Bengkel Prima Motor"></canvas>
+<div id="pbar"></div>
+<div class="top"><div class="brand">PRIMA<span>MOTOR</span></div><div id="steps" role="navigation" aria-label="Halaman"></div><a class="btn acc" href="https://wa.me/6289683046641" target="_blank" rel="noopener">Booking</a></div>
+<div id="caps" aria-live="polite"></div>
+<div id="hint">Scroll ke bawah untuk masuk · geser layar untuk melihat sekeliling</div>
+<div class="tap"><i></i> Klik titik untuk detail</div>
+<div id="spacer"></div>
+<div class="after"><div class="wrap"><h2>Layanan dan harga</h2><div class="g">
+<div class="card"><b style="font-size:20px">Servis berkala</b><span>Ganti oli dan cek 30 titik</span><b style="font-size:24px;color:#d4500b">mulai Rp 350.000</b></div>
+<div class="card"><b style="font-size:20px">Tune up</b><span>Mesin enteng, bensin irit</span><b style="font-size:24px;color:#d4500b">mulai Rp 450.000</b></div>
+<div class="card"><b style="font-size:20px">AC mobil</b><span>Dingin lagi dalam 2 jam</span><b style="font-size:24px;color:#d4500b">mulai Rp 300.000</b></div>
+<div class="card"><b style="font-size:20px">Coating</b><span>Nano ceramic, garansi 2 tahun</span><b style="font-size:24px;color:#d4500b">Rp 2.800.000</b></div></div>
+<div style="margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;align-items:center"><a class="btn acc" href="https://wa.me/6289683046641" target="_blank" rel="noopener">Booking servis</a><span>Jl. Contoh No. 8, Bandung · Senin sampai Sabtu 08.00 sampai 17.00</span></div></div>
+<div class="foot"><span>© 2026 Bengkel Prima Motor</span><span>Website oleh Kapsio Digital</span></div></div>
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-labelledby="mTitle"><div class="modal"><button class="x" id="mClose" type="button" aria-label="Tutup">✕</button><div id="mIcon" aria-hidden="true"></div><span id="mCat"></span><h3 id="mTitle"></h3><p id="mDesc"></p><div id="mMeta"></div><b id="mPrice"></b><a class="btn" id="mWa" href="#" target="_blank" rel="noopener">Tanya lewat WhatsApp</a></div></div>
+<div class="err" id="err"><div><h2>Perangkat ini belum mendukung tampilan 3D</h2><p>Coba buka lewat Chrome atau Safari versi terbaru.</p></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+function Engine(cfg) {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const cv = $('c');
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true }); } catch (e) { $('err').style.display = 'flex'; return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = cfg.exposure || 1.05;
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(cfg.bg);
+  scene.fog = new THREE.Fog(cfg.bg, 18, 42);
+  const camera = new THREE.PerspectiveCamera(62, 1, 0.05, 80);
+  let seed = 11; const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+
+  /* ---------- helpers ---------- */
+  const mcache = {};
+  const mat = (c, o) => { if (o) { o = Object.assign({}, o); delete o.parent; delete o.seg; } const k = c + JSON.stringify(o || {}); if (!mcache[k]) mcache[k] = new THREE.MeshStandardMaterial(Object.assign({ color: c, roughness: .7 }, o || {})); return mcache[k]; };
+  function tex(w, h, draw, rep) { const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; t.anisotropy = 4; if (rep) { t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(rep[0], rep[1]); } return t; }
+  function box(w, h, d, c, x, y, z, o) { const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), typeof c === 'string' ? mat(c, o) : c); m.position.set(x, y, z); (o && o.parent ? o.parent : scene).add(m); return m; }
+  function cyl(rt, rb, h, c, x, y, z, o) { const m = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, o && o.seg || 24), typeof c === 'string' ? mat(c, o) : c); m.position.set(x, y, z); (o && o.parent ? o.parent : scene).add(m); return m; }
+  function sign(text, bg, fg, w, h, x, y, z, ry, font) {
+    const t = tex(1024, Math.round(1024 * h / w), (g, W, H) => { g.fillStyle = bg; g.fillRect(0, 0, W, H); g.fillStyle = fg; g.textAlign = 'center'; g.textBaseline = 'middle'; let fs = Math.round(H * .5); g.font = `700 ${fs}px ${font || cfg.font}`; while (g.measureText(text).width > W * .9 && fs > 10) { fs -= 4; g.font = `700 ${fs}px ${font || cfg.font}`; } g.fillText(text, W / 2, H / 2 + 2); });
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ map: t })); m.position.set(x, y, z); m.rotation.y = ry || 0; scene.add(m); return m;
+  }
+  function plane(w, d, c, x, y, z, rx, ry, map) { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, d), map ? new THREE.MeshStandardMaterial({ map, roughness: .8 }) : mat(c)); m.position.set(x, y, z); m.rotation.set(rx || 0, ry || 0, 0); scene.add(m); return m; }
+  function light(x, y, z, c, i, d) { const l = new THREE.PointLight(c || '#fff2dc', i || .8, d || 14, 1.6); l.position.set(x, y, z); scene.add(l); return l; }
+  function group(x, y, z, ry) { const g = new THREE.Group(); g.position.set(x, y, z); g.rotation.y = ry || 0; scene.add(g); return g; }
+  const clickables = [], markers = [];
+  const markTex = tex(128, 128, (g) => { g.fillStyle = 'rgba(255,255,255,.25)'; g.beginPath(); g.arc(64, 64, 60, 0, 7); g.fill(); g.fillStyle = cfg.accent; g.beginPath(); g.arc(64, 64, 40, 0, 7); g.fill(); g.fillStyle = '#fff'; g.fillRect(58, 42, 12, 44); g.fillRect(42, 58, 44, 12); });
+  function click(obj, info, mh) {
+    obj.userData.info = info; clickables.push(obj);
+    const bb = new THREE.Box3().setFromObject(obj); const c = bb.getCenter(new THREE.Vector3());
+    const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: markTex, depthTest: false, transparent: true })); sp.scale.set(.42, .42, 1); sp.position.set(c.x, bb.max.y + (mh || .35), c.z); sp.renderOrder = 10; sp.userData.info = info; sp.userData.by = sp.position.y; scene.add(sp); markers.push(sp); clickables.push(sp);
+    return obj;
+  }
+  function car(x, z, ry, color, o) {
+    const g = group(x, (o && o.y) || 0, z, ry); const body = mat(color, { roughness: .25, metalness: .45 }); const dark = mat('#1b1d21'); const glass = mat('#9ec3dc', { roughness: .1, metalness: .3 });
+    box(4.2, .7, 1.8, body, 0, .65, 0, { parent: g }); box(2.3, .65, 1.6, body, -.2, 1.3, 0, { parent: g }); box(2.2, .5, 1.62, glass, -.2, 1.32, 0, { parent: g });
+    box(.06, .25, 1.5, mat('#fff6c4', { emissive: '#fff2a0', emissiveIntensity: .8 }), 2.11, .78, 0, { parent: g }); box(.06, .2, 1.5, mat('#c0392b', { emissive: '#ff4040', emissiveIntensity: .5 }), -2.11, .78, 0, { parent: g });
+    [[1.35, .9], [1.35, -.9], [-1.35, .9], [-1.35, -.9]].forEach(([wx, wz]) => { const w = cyl(.38, .38, .28, dark, wx, .38, wz, { parent: g }); w.rotation.x = Math.PI / 2; const r = cyl(.22, .22, .3, mat('#c9ced6', { metalness: .7, roughness: .3 }), wx, .38, wz, { parent: g }); r.rotation.x = Math.PI / 2; });
+    return g;
+  }
+  function person(x, z, ry, shirt) { const g = group(x, 0, z, ry); box(.42, .8, .26, '#2f3640', 0, .4, 0, { parent: g }); box(.5, .7, .3, shirt, 0, 1.15, 0, { parent: g }); const h = new THREE.Mesh(new THREE.SphereGeometry(.17, 16, 12), mat('#c99a74')); h.position.set(0, 1.68, 0); g.add(h); return g; }
+  function plant(x, z) { cyl(.25, .2, .45, '#c96f4a', x, .22, z); for (let i = 0; i < 6; i++) { const l = new THREE.Mesh(new THREE.SphereGeometry(.28, 10, 8), mat(i % 2 ? '#4f7a3f' : '#3f6b33')); l.scale.set(.6, 1.3, .6); l.position.set(x + Math.cos(i) * .18, .8 + (i % 3) * .18, z + Math.sin(i) * .18); scene.add(l); } }
+  function room(i, o) {
+    const cx = i * 16, W = 14, D = 12, H = o.h || 4.2;
+    const fl = plane(W + 2, D, o.floor || '#8a6a4a', cx, 0, 0, -Math.PI / 2, 0, o.floorMap); fl.material.roughness = .55;
+    if (!o.open) { plane(W + 2, D, o.ceil || '#e8e0d2', cx, H, 0, Math.PI / 2); }
+    const wm = o.wallMap ? new THREE.MeshStandardMaterial({ map: o.wallMap, roughness: .95 }) : mat(o.wall || '#ece4d6', { roughness: .95 });
+    if (!o.open) {
+      const bw = new THREE.Mesh(new THREE.PlaneGeometry(W + 2, H), wm); bw.position.set(cx, H / 2, -D / 2); scene.add(bw);
+      if (i === 0) { const lw = new THREE.Mesh(new THREE.PlaneGeometry(D, H), wm); lw.position.set(cx - 8, H / 2, 0); lw.rotation.y = Math.PI / 2; scene.add(lw); }
+      // partition to the right with doorway z in [0.6, 5.4]
+      const p1 = new THREE.Mesh(new THREE.PlaneGeometry(6.6, H), wm); p1.position.set(cx + 8, H / 2, -2.7); p1.rotation.y = -Math.PI / 2; scene.add(p1);
+      const p1b = p1.clone(); p1b.rotation.y = Math.PI / 2; scene.add(p1b);
+      box(.2, H - 2.8, 4.8, o.trim || '#3a2a1c', cx + 8, 2.8 + (H - 2.8) / 2, 3, {});
+      box(.25, 2.8, .2, o.trim || '#3a2a1c', cx + 8, 1.4, .6, {}); box(.25, 2.8, .2, o.trim || '#3a2a1c', cx + 8, 1.4, 5.4, {});
+    }
+    if (o.wainscot) { const m = new THREE.Mesh(new THREE.PlaneGeometry(W + 2, .9), mat(o.wainscot)); m.position.set(cx, .45, -D / 2 + .02); scene.add(m); }
+    (o.lights || [[-3, -2], [3, -2], [0, 3]]).forEach(([lx, lz]) => light(cx + lx, H - .6, lz, o.lightColor, o.lightI || .8));
+    return cx;
+  }
+  const api = { THREE, scene, mat, tex, box, cyl, sign, plane, light, group, click, car, person, plant, room, rnd };
+  scene.add(new THREE.HemisphereLight(cfg.sky || '#fff1dc', '#3a2a1c', cfg.hemi || .7));
+  cfg.build(api);
+
+  /* ---------- keyframes & UI ---------- */
+  const R = cfg.rooms, K = R.length;
+  $('spacer').style.height = (K * 100) + 'vh';
+  const capBox = $('caps'), steps = $('steps');
+  R.forEach((r, i) => {
+    const d = document.createElement('div'); d.className = 'cap'; d.innerHTML = `<span class="lab"></span><h2></h2><p></p>`;
+    d.querySelector('.lab').textContent = String(i + 1).padStart(2, '0') + ' · ' + r.name; d.querySelector('h2').textContent = r.title; d.querySelector('p').textContent = r.text;
+    if (r.cta) { const a = document.createElement('a'); a.className = 'btn acc'; a.href = waLink(r.cta); a.target = '_blank'; a.rel = 'noopener'; a.textContent = r.ctaLabel || 'Chat WhatsApp'; d.appendChild(a); }
+    capBox.appendChild(d); r.el = d;
+    const s = document.createElement('button'); s.type = 'button'; s.textContent = r.name; s.onclick = () => goRoom(i); steps.appendChild(s); r.step = s;
+  });
+  function waLink(t) { return 'https://wa.me/' + cfg.wa + '?text=' + encodeURIComponent(t); }
+  function maxScroll() { return $('spacer').offsetHeight - innerHeight; }
+  function goRoom(i) { window.scrollTo({ top: (i / (K - 1)) * maxScroll(), behavior: 'smooth' }); }
+
+  let pT = 0, p = 0;
+  addEventListener('scroll', () => { pT = Math.max(0, Math.min(1, scrollY / Math.max(1, maxScroll()))); }, { passive: true });
+  const look = { yaw: 0, pitch: 0 };
+  let down = null, moved = 0, lastScroll = 0;
+  cv.addEventListener('pointerdown', (e) => { down = { x: e.clientX, y: e.clientY }; moved = 0; });
+  addEventListener('pointermove', (e) => {
+    if (down) { const dx = e.clientX - down.x, dy = e.clientY - down.y; moved += Math.abs(dx) + Math.abs(dy); look.yaw -= dx * .005; if (e.pointerType !== 'touch') look.pitch = Math.max(-.8, Math.min(.8, look.pitch - dy * .004)); down.x = e.clientX; down.y = e.clientY; if (moved > 6) document.body.classList.add('drag'); }
+    else if (e.target === cv && e.pointerType !== 'touch') { const o = pick(e); cv.style.cursor = o ? 'pointer' : 'grab'; setHover(o); }
+  });
+  addEventListener('pointerup', (e) => { if (down && moved < 8 && e.target === cv) { const o = pick(e); if (o) openInfo(o.userData.info); } down = null; document.body.classList.remove('drag'); });
+  addEventListener('pointercancel', () => { down = null; document.body.classList.remove('drag'); });
+
+  const ray = new THREE.Raycaster(), v2 = new THREE.Vector2();
+  function owner(o) { while (o && !o.userData.info) o = o.parent; return o; }
+  function pick(e) { v2.set((e.clientX / innerWidth) * 2 - 1, -(e.clientY / innerHeight) * 2 + 1); ray.setFromCamera(v2, camera); const hits = ray.intersectObjects(clickables, true); for (const h of hits) { if (h.distance > 16) break; const o = owner(h.object); if (o) return o; } return null; }
+  let hovered = null; const saved = new Map();
+  function setHover(o) { if (o && o.isSprite) o = clickables.find((c) => !c.isSprite && c.userData.info === o.userData.info) || o; if (o === hovered) return; if (hovered) saved.forEach((v, m) => { m.material = v; }); saved.clear(); hovered = o; if (o && !o.isSprite) o.traverse((m) => { if (m.isMesh && m.material && m.material.isMeshStandardMaterial) { saved.set(m, m.material); const c = m.material.clone(); c.emissive = new THREE.Color(cfg.accent); c.emissiveIntensity = .25; m.material = c; } }); }
+
+  /* modal */
+  function openInfo(inf) {
+    $('mCat').textContent = inf.cat || ''; $('mTitle').textContent = inf.title; $('mDesc').textContent = inf.desc;
+    const meta = $('mMeta'); meta.innerHTML = ''; (inf.meta || []).forEach((t) => { const s = document.createElement('span'); s.textContent = t; meta.appendChild(s); });
+    $('mPrice').textContent = inf.price || ''; $('mPrice').style.display = inf.price ? '' : 'none';
+    $('mWa').href = waLink(inf.wa || ('Halo, saya mau tanya tentang ' + inf.title)); $('mWa').textContent = inf.cta || 'Tanya lewat WhatsApp';
+    $('mIcon').textContent = inf.icon || '✦'; $('mIcon').style.background = inf.color || cfg.accent;
+    $('ov').classList.add('show'); setTimeout(() => $('mClose').focus(), 30);
+  }
+  function closeInfo() { $('ov').classList.remove('show'); }
+  $('mClose').onclick = closeInfo; $('ov').addEventListener('pointerdown', (e) => { if (e.target === $('ov')) closeInfo(); });
+  addEventListener('keydown', (e) => { if (e.key === 'Escape') closeInfo(); });
+
+  /* ---------- loop ---------- */
+  function resize() { renderer.setSize(innerWidth, innerHeight, false); camera.aspect = innerWidth / innerHeight; camera.fov = innerWidth < innerHeight ? 80 : 60; camera.updateProjectionMatrix(); }
+  addEventListener('resize', resize); resize();
+  const sm = (t) => t * t * (3 - 2 * t);
+  const P = new THREE.Vector3(), L = new THREE.Vector3(), tmp = new THREE.Vector3();
+  let last = performance.now();
+  function frame(now) {
+    const dt = Math.min(.05, (now - last) / 1000); last = now;
+    const prevP = p; p += (pT - p) * Math.min(1, dt * 4);
+    if (Math.abs(p - prevP) > .0005) { look.yaw *= .9; look.pitch *= .9; }
+    const t = p * (K - 1); const i = Math.min(K - 2, Math.floor(t)); let f = t - i; f = sm(Math.max(0, Math.min(1, (f - .2) / .6)));
+    const a = R[i], b = R[i + 1];
+    P.set(a.cam[0] + (b.cam[0] - a.cam[0]) * f, a.cam[1] + (b.cam[1] - a.cam[1]) * f, a.cam[2] + (b.cam[2] - a.cam[2]) * f);
+    // mid-walk: go through the doorway lane (z≈3) when changing rooms
+    const lane = Math.sin(f * Math.PI); P.z = P.z + ((cfg.lane || 3) - P.z) * lane * .8;
+    L.set(a.look[0] + (b.look[0] - a.look[0]) * f, a.look[1] + (b.look[1] - a.look[1]) * f, a.look[2] + (b.look[2] - a.look[2]) * f);
+    if (innerWidth < innerHeight) { L.y -= .45; tmp.subVectors(L, P).setY(0).normalize(); P.addScaledVector(tmp, 1.3); }
+    camera.position.copy(P); camera.position.y += Math.sin(now / 700) * .01;
+    camera.lookAt(L); camera.rotateOnWorldAxis(new THREE.Vector3(0, 1, 0), look.yaw); camera.rotateX(look.pitch);
+    R.forEach((r, k) => { const dd = Math.abs(t - k); const op = Math.max(0, Math.min(1, (.42 - dd) / .2)); r.el.style.opacity = op; r.el.style.transform = `translateY(${(1 - op) * 24}px)`; const ba = r.el.querySelector('a'); if (ba) ba.style.pointerEvents = op > .5 ? 'auto' : 'none'; r.step.classList.toggle('on', Math.round(t) === k); });
+    $('pbar').style.width = (p * 100) + '%'; $('hint').style.opacity = p < .02 ? 1 : 0;
+    markers.forEach((m, k) => { m.position.y = m.userData.by + Math.sin(now / 500 + k) * .06; const s = .42 + Math.sin(now / 400 + k) * .04; m.scale.set(s, s, 1); });
+    if (cfg.tick) cfg.tick(now / 1000, p, api);
+    renderer.render(scene, camera); requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  window.__E = { pick: (x, y) => { const o = pick({ clientX: x, clientY: y }); return o ? o.userData.info.title : null; }, goRoom, setP: (v) => { pT = p = v; }, openInfo, clickables, markers, camera, R };
+}
+
+Engine({
+  bg: '#16181c', accent: '#ff6b1a', font: '"Barlow Condensed", Arial, sans-serif', wa: '6289683046641', exposure: 1.1, hemi: .8,
+  rooms: [
+    { name: 'Lobi', title: 'Selamat datang di Prima Motor.', text: 'Bengkel umum semua merek sejak 2011. Klik titik oranye di ruangan untuk melihat detail, scroll untuk masuk lebih dalam.', cam: [-1.5, 1.65, 5], look: [.5, 1.3, -3] },
+    { name: 'Bay Servis', title: 'Mobil Anda di atas lift, Anda lihat lewat kaca.', text: 'Estimasi tertulis sebelum dikerjakan. Onderdil lama diserahkan kembali.', cam: [14.5, 1.75, 4.5], look: [16.5, 1.3, -2.5] },
+    { name: 'Sparepart', title: 'Onderdil asli atau setara, Anda yang pilih.', text: 'Dua pilihan harga untuk setiap part, lengkap dengan garansi.', cam: [30.5, 1.65, 4], look: [32, 1.4, -4] },
+    { name: 'Cuci & Detailing', title: 'Keluar bengkel, mobil sudah kinclong.', text: 'Cuci salju gratis untuk servis berkala. Coating nano ceramic tersedia.', cam: [46.5, 1.7, 4.5], look: [48, 1, -1.5] },
+    { name: 'Serah Terima', title: 'Garansi servis 30 hari.', text: 'Riwayat servis dikirim ke WhatsApp, jadi Anda tahu kapan servis berikutnya.', cam: [62.5, 1.8, 5], look: [64, 1, -1], cta: 'Halo Prima Motor, saya mau booking servis.', ctaLabel: 'Booking servis' }
+  ],
+  build(A) {
+    const epoxy = A.tex(512, 512, (g, w, h) => { g.fillStyle = '#5b6068'; g.fillRect(0, 0, w, h); for (let i = 0; i < 4000; i++) { g.fillStyle = `rgba(${200 + A.rnd() * 55},${200 + A.rnd() * 55},${200 + A.rnd() * 55},${A.rnd() * .08})`; g.fillRect(A.rnd() * w, A.rnd() * h, 2, 2); } }, [4, 3]);
+    const bayFloor = A.tex(512, 512, (g, w, h) => { g.fillStyle = '#4c5158'; g.fillRect(0, 0, w, h); g.fillStyle = '#f2b134'; g.fillRect(60, 0, 14, h); g.fillRect(w - 74, 0, 14, h); for (let y = 0; y < h; y += 40) { g.fillStyle = 'rgba(0,0,0,.6)'; g.fillRect(60, y, 14, 20); g.fillRect(w - 74, y, 14, 20); } }, [2, 1]);
+    const wall = A.tex(256, 256, (g, w, h) => { g.fillStyle = '#d9dbde'; g.fillRect(0, 0, w, h); g.fillStyle = 'rgba(0,0,0,.05)'; for (let y = 0; y < h; y += 32) g.fillRect(0, y, w, 2); }, [6, 2]);
+    const common = { wallMap: wall, trim: '#2b2e33', lightColor: '#f4f7ff', lightI: .9, wainscot: '#ff6b1a' };
+    /* 0 Lobi */
+    const c0 = A.room(0, Object.assign({ floorMap: epoxy }, common));
+    A.sign('PRIMA MOTOR', '#16181c', '#ff6b1a', 4.2, .7, c0, 3.3, -5.95);
+    const desk = A.group(c0 + .5, 0, -3.6); A.box(3.4, 1.05, .9, '#2b2e33', 0, .52, 0, { parent: desk }); A.box(3.5, .06, 1, '#ff6b1a', 0, 1.07, 0, { parent: desk }); A.box(.5, .35, .04, '#111', .8, 1.28, -.1, { parent: desk, emissive: '#3a7bd5', emissiveIntensity: .6 });
+    A.person(c0 + .5, -4.4, 0, '#ff6b1a');
+    A.click(desk, { cat: 'Resepsionis', title: 'Booking servis tanpa antre', desc: 'Pilih jam datang lewat WhatsApp. Kendaraan langsung dicek begitu tiba, estimasi biaya diberikan tertulis sebelum dikerjakan.', meta: ['Senin sampai Sabtu', '08.00 sampai 17.00', 'Semua merek'], icon: '📋', cta: 'Booking jam servis', wa: 'Halo Prima Motor, saya mau booking jam servis.' });
+    const sofa = A.group(c0 - 4, 0, 1.5, Math.PI / 2); A.box(2.6, .45, .9, '#3b4a6b', 0, .3, 0, { parent: sofa }); A.box(2.6, .6, .25, '#3b4a6b', 0, .75, -.35, { parent: sofa }); A.box(.25, .55, .9, '#33405e', -1.3, .5, 0, { parent: sofa }); A.box(.25, .55, .9, '#33405e', 1.3, .5, 0, { parent: sofa });
+    A.click(sofa, { cat: 'Ruang tunggu', title: 'Tunggu dengan nyaman', desc: 'Ruang ber-AC, Wi-Fi cepat, kopi dan teh gratis. Kaca besar menghadap bay servis supaya Anda bisa melihat mobil dikerjakan.', meta: ['Wi-Fi', 'Kopi gratis', 'Mushola', 'Toilet bersih'], icon: '☕' });
+    const tv = A.sign('ANTREAN  B-12', '#0d2340', '#7fd3ff', 2, 1.1, c0 - 6.95, 2.3, 0, Math.PI / 2, 'Arial');
+    A.click(tv, { cat: 'Layar antrean', title: 'Pantau antrean dari rumah', desc: 'Nomor antrean dan status pengerjaan dikirim otomatis ke WhatsApp, jadi tidak perlu menunggu di bengkel.', meta: ['Notifikasi WhatsApp', 'Foto progres'], icon: '📺' });
+    A.plant(c0 - 6.3, -5.2); A.plant(c0 + 6.3, -5.2);
+    const glass = new A.THREE.Mesh(new A.THREE.PlaneGeometry(4, 2), A.mat('#9fc6d6', { transparent: true, opacity: .25, roughness: .05 })); glass.position.set(c0 + 3.6, 1.7, -5.94); A.scene.add(glass);
+    /* 1 Bay servis */
+    const c1 = A.room(1, Object.assign({ floorMap: bayFloor }, common));
+    A.sign('BAY SERVIS 1', '#ff6b1a', '#16181c', 3, .55, c1, 3.5, -5.95);
+    [[-2.3, -1.4], [2.3, -1.4], [-2.3, -4.2], [2.3, -4.2]].forEach(([x, z]) => A.box(.25, 2.6, .25, '#f2b134', c1 + x, 1.3, z));
+    A.box(4.4, .12, .3, '#f2b134', c1, 1.05, -1.4); A.box(4.4, .12, .3, '#f2b134', c1, 1.05, -4.2);
+    const car1 = A.car(c1, -2.8, 0, '#c0392b', { y: 1.12 });
+    A.click(car1, { cat: 'Servis berkala', title: 'Ganti oli + cek 30 titik', desc: 'Oli mesin, filter oli, cek rem, kaki-kaki, aki, lampu, dan AC. Hasil pengecekan dikirim dalam bentuk foto dan checklist.', meta: ['± 90 menit', 'Garansi 30 hari'], price: 'mulai Rp 350.000', icon: '🔧', cta: 'Booking servis berkala' });
+    const cab = A.group(c1 - 5.6, 0, -4.8); A.box(1.6, 1.1, .7, '#d63a2a', 0, .55, 0, { parent: cab, roughness: .4, metalness: .3 }); for (let k = 0; k < 5; k++) A.box(1.5, .02, .02, '#999', 0, .2 + k * .2, .36, { parent: cab });
+    A.click(cab, { cat: 'Diagnosa', title: 'Scan komputer OBD', desc: 'Lampu check engine menyala? Kami baca kode kerusakan dengan scanner, lalu jelaskan penyebabnya dengan bahasa yang mudah dipahami.', meta: ['15 menit', 'Semua merek'], price: 'Rp 100.000', icon: '💻' });
+    const tires = A.group(c1 + 5.4, 0, -4.6); for (let k = 0; k < 4; k++) { const t = A.cyl(.42, .42, .28, '#1b1d21', 0, .14 + k * .29, 0, { parent: tires }); }
+    A.click(tires, { cat: 'Kaki-kaki', title: 'Spooring & balancing', desc: 'Setir lurus, ban awet, mobil tidak limbung di tol. Dikerjakan dengan mesin spooring 3D.', meta: ['45 menit'], price: 'Rp 250.000', icon: '🛞' });
+    A.person(c1 - 2.8, -1.2, .6, '#2b4a8f');
+    /* 2 Sparepart */
+    const c2 = A.room(2, Object.assign({ floorMap: epoxy }, common));
+    A.sign('SPAREPART', '#16181c', '#ff6b1a', 3, .55, c2, 3.5, -5.95);
+    const cols = ['#ff6b1a', '#1f6fd1', '#2f9a5a', '#f2b134', '#c0392b', '#7a3ea8'];
+    for (let s = 0; s < 3; s++) { const sx = c2 - 4.5 + s * 4.5; [0, .7, 1.4, 2.1].forEach((y) => A.box(3.8, .05, .7, '#8b9097', sx, y + .1, -5.2)); A.box(.06, 2.4, .7, '#8b9097', sx - 1.9, 1.2, -5.2); A.box(.06, 2.4, .7, '#8b9097', sx + 1.9, 1.2, -5.2);
+      for (let r = 0; r < 3; r++) for (let k = 0; k < 6; k++) { const bw = .45 + A.rnd() * .15; A.box(bw, .4 + A.rnd() * .15, .5, cols[(s * 3 + r + k) % 6], sx - 1.6 + k * .62, .35 + r * .7, -5.2, { roughness: .9 }); } }
+    const prods = [['Oli Mesin 4 L', 'Oli sintetis 5W-30 untuk mobil bensin modern.', 'Rp 385.000', '#f2b134', '🛢️'], ['Aki Kering 45Ah', 'Bebas perawatan, garansi 12 bulan, pasang di tempat.', 'Rp 850.000', '#1f6fd1', '🔋'], ['Kampas Rem Depan', 'Pengereman senyap, tidak berdebu.', 'Rp 320.000', '#c0392b', '🛑'], ['Ban 185/65 R15', 'Ban aspal senyap dan irit, harga per buah.', 'Rp 780.000', '#2b2e33', '🛞']];
+    prods.forEach((pr, k) => { const g = A.group(c2 - 4.5 + k * 3, 0, -1.6); A.box(1.4, .9, .8, '#2b2e33', 0, .45, 0, { parent: g }); A.box(.6, .55, .4, pr[3], 0, 1.18, 0, { parent: g, roughness: .4 });
+      A.click(g, { cat: 'Sparepart', title: pr[0], desc: pr[1] + ' Harga sudah termasuk pemasangan.', meta: ['Asli atau setara', 'Bergaransi'], price: pr[2], icon: pr[4], cta: 'Pesan part ini', wa: 'Halo Prima Motor, saya mau pesan ' + pr[0] + '.' }); });
+    /* 3 Cuci */
+    const c3 = A.room(3, Object.assign({ floorMap: epoxy }, common, { lightColor: '#e8f4ff' }));
+    A.sign('CUCI & DETAILING', '#36d6ff', '#0d1014', 3.6, .55, c3, 3.5, -5.95);
+    const car3 = A.car(c3, -2.2, -.3, '#1f5fd6');
+    A.scene.userData.foam = []; for (let k = 0; k < 26; k++) { const s = new A.THREE.Mesh(new A.THREE.SphereGeometry(.18 + A.rnd() * .18, 12, 10), A.mat('#f4f8fc', { roughness: .9 })); s.position.set(c3 - 2 + A.rnd() * 4, 1 + A.rnd() * 1, -2.2 - 1 + A.rnd() * 2); A.scene.add(s); A.scene.userData.foam.push(s); }
+    A.click(car3, { cat: 'Cuci', title: 'Cuci salju pH netral', desc: 'Busa tebal mengangkat kotoran tanpa menggores cat. Termasuk vakum interior dan semir ban.', meta: ['45 menit', 'Gratis untuk servis berkala'], price: 'Rp 65.000', icon: '🫧' });
+    const pol = A.group(c3 + 4.5, 0, -4.6); A.box(1, 1.1, .6, '#36d6ff', 0, .55, 0, { parent: pol }); A.cyl(.25, .25, .1, '#111', 0, 1.2, 0, { parent: pol });
+    A.click(pol, { cat: 'Detailing', title: 'Nano ceramic coating', desc: 'Poles 3 tahap lalu dilapisi coating. Air hujan langsung meluncur, kilap bertahan sampai 2 tahun.', meta: ['2 hari', 'Garansi 2 tahun'], price: 'Rp 2.800.000', icon: '✨', cta: 'Tanya promo coating' });
+    /* 4 Serah terima */
+    const c4 = A.room(4, Object.assign({ floorMap: epoxy }, common, { lights: [[0, -1.5], [-4, 3], [4, 3]], lightI: 1.1 }));
+    A.sign('GARANSI 30 HARI', '#ff6b1a', '#16181c', 3.6, .6, c4, 3.4, -5.95);
+    const tt = A.cyl(2.6, 2.6, .12, '#2b2e33', c4, .06, -1.6, { seg: 48 }); A.scene.userData.tt = A.group(c4, .12, -1.6);
+    const car4 = A.car(0, 0, 0, '#f2f2f2'); A.scene.remove(car4); A.scene.userData.tt.add(car4);
+    A.click(A.scene.userData.tt, { cat: 'Serah terima', title: 'Mobil siap, garansi aktif', desc: 'Kami jelaskan semua pekerjaan, serahkan onderdil lama, dan kirim riwayat servis ke WhatsApp. Ada keluhan dalam 30 hari? Cek ulang gratis.', meta: ['Riwayat digital', 'Cek ulang gratis'], icon: '🛡️', cta: 'Booking servis', wa: 'Halo Prima Motor, saya mau booking servis.' });
+    const spot = new A.THREE.SpotLight('#ffffff', 1.4, 12, .5, .5); spot.position.set(c4, 4, 1); spot.target.position.set(c4, 0, -1.6); A.scene.add(spot); A.scene.add(spot.target);
+    const kas = A.group(c4 + 5, 0, 2.5, -Math.PI / 2); A.box(2, 1.05, .8, '#2b2e33', 0, .52, 0, { parent: kas }); A.box(2.1, .05, .9, '#ff6b1a', 0, 1.07, 0, { parent: kas });
+    A.click(kas, { cat: 'Pembayaran', title: 'Bayar dengan cara Anda', desc: 'Tunai, transfer, QRIS, atau kartu debit. Kwitansi resmi untuk klaim kantor.', meta: ['QRIS', 'Transfer', 'Debit'], icon: '💳' });
+  },
+  tick(t, p, A) { if (A.scene.userData.tt) A.scene.userData.tt.rotation.y = t * .35; (A.scene.userData.foam || []).forEach((s, k) => { s.position.y += Math.sin(t * 2 + k) * .0015; }); }
+});
+
+</script>
+</body>
+</html>
