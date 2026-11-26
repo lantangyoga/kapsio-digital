@@ -17,7 +17,15 @@ window.KAPSIO = {
     tumbuh: { normal: "Rp999.000",   promo: "Rp599.000" },   // 5 halaman
     juara:  { normal: "Rp1.999.000", promo: "Rp1.199.000" }, // 12 halaman
     toko:   { normal: "Rp2.999.000", promo: "Rp1.799.000" }, // toko online
-    jaga:   { normal: "Rp149.000",   promo: "Rp99.000" }     // perawatan per bulan
+    jaga:   { normal: "Rp149.000",   promo: "Rp99.000" },    // perawatan per bulan
+    // Kelola sosmed (per bulan)
+    sos1:   { normal: "Rp1.500.000", promo: "Rp999.000" },   // Hadir
+    sos2:   { normal: "Rp2.500.000", promo: "Rp1.799.000" }, // Aktif
+    sos3:   { normal: "Rp4.000.000", promo: "Rp2.999.000" }, // Bintang
+    // Digital marketing / iklan (jasa kelola per bulan, di luar budget iklan)
+    ads1:   { normal: "Rp1.500.000", promo: "Rp999.000" },   // Langkah
+    ads2:   { normal: "Rp3.000.000", promo: "Rp1.999.000" }, // Laju
+    ads3:   { normal: "Rp5.000.000", promo: "Rp3.499.000" }  // Melesat
   },
 
   // Promo berakhir (hitung mundur di website). Setelah lewat, harga otomatis kembali normal.
@@ -31,5 +39,5 @@ window.KAPSIO = {
   instagram: "",
 
   // Teks banner promo. Kosongkan ("") untuk menyembunyikan banner.
-  promo: "Promo akhir tahun 2026: website mulai Rp299 ribu. Berlaku sampai 31 Desember!"
+  promo: "Promo akhir tahun 2026: website mulai Rp299 ribu, kelola sosmed dan iklan mulai Rp999 ribu. Sampai 31 Desember!"
 };
