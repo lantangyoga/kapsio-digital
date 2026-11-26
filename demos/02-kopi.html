@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kopi Teras</title>
+<script src="dc-lite.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+.up{animation:up .9s both cubic-bezier(.2,.8,.2,1)}
+.lift{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}.lift:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.16)}
+.wrap{max-width:1200px;margin:0 auto;padding-left:clamp(16px,4vw,40px);padding-right:clamp(16px,4vw,40px)}
+.g{display:grid;gap:clamp(14px,2vw,24px);grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.gs{display:grid;gap:clamp(12px,2vw,20px);grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.gl{display:grid;gap:clamp(24px,4vw,56px);grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));align-items:center}
+.row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.sec{padding-top:clamp(56px,8vw,96px);padding-bottom:clamp(56px,8vw,96px)}
+@media (max-width:700px){.hm{display:none!important}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.mi{transition:padding .3s,color .3s}.mi:hover{padding-left:12px;color:#f0a36b}
+</style>
+</helmet>
+<div onScroll="{{onS}}" style="height:100vh;overflow-y:auto;overflow-x:hidden;background:#2a1a12;color:#f3e7d6;font-family:Inter,sans-serif">
+<div style="height:500vh;position:relative"><div style="position:sticky;top:0;height:100vh;overflow:hidden">
+<div style="position:absolute;left:0;top:0;height:4px;width:{{pct}}%;background:#c8692c;z-index:30"></div>
+<div style="position:absolute;left:50%;bottom:3vh;z-index:30;opacity:{{hint}};transition:opacity .4s;animation:bounce 1.6s infinite;font-size:13px;letter-spacing:2px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:4px;text-shadow:0 1px 8px rgba(0,0,0,.35)"><span>Scroll ke bawah</span><span aria-hidden="true">↓</span></div>
+<div style="position:absolute;inset:0;background:{{bg}}"></div>
+<div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 60%,rgba(200,105,44,.22),transparent 55%)"></div>
+<div class="wrap row" style="position:absolute;left:0;right:0;top:0;padding-top:16px;z-index:25;color:{{fg}}"><b style="font-family:Fraunces;font-size:26px">Kopi Teras</b><span class="hm" style="font-size:14px;opacity:.8">Kebun · Sangrai · Seduh · Antar</span><a href="https://wa.me/6289683046641" style="background:#c8692c;color:#fff;font-weight:700;padding:12px 20px;border-radius:999px;text-decoration:none;min-height:44px;display:inline-flex;align-items:center">Pesan antar</a></div>
+<div style="position:absolute;right:12vw;bottom:10vh;width:38vmin;height:50vmin;z-index:5">
+<div style="position:absolute;left:18%;top:{{by0}}vmin;width:5vmin;height:7vmin;border-radius:50%;background:{{bean}};transform:rotate({{br0}}deg);opacity:{{bop}};box-shadow:inset -1vmin 0 0 rgba(0,0,0,.25)"><div style="position:absolute;left:50%;top:12%;bottom:12%;width:.6vmin;margin-left:-.3vmin;border-radius:9px;background:rgba(0,0,0,.35);transform:rotate(8deg)"></div></div><div style="position:absolute;left:38%;top:{{by1}}vmin;width:5vmin;height:7vmin;border-radius:50%;background:{{bean}};transform:rotate({{br1}}deg);opacity:{{bop}};box-shadow:inset -1vmin 0 0 rgba(0,0,0,.25)"><div style="position:absolute;left:50%;top:12%;bottom:12%;width:.6vmin;margin-left:-.3vmin;border-radius:9px;background:rgba(0,0,0,.35);transform:rotate(8deg)"></div></div><div style="position:absolute;left:55%;top:{{by2}}vmin;width:5vmin;height:7vmin;border-radius:50%;background:{{bean}};transform:rotate({{br2}}deg);opacity:{{bop}};box-shadow:inset -1vmin 0 0 rgba(0,0,0,.25)"><div style="position:absolute;left:50%;top:12%;bottom:12%;width:.6vmin;margin-left:-.3vmin;border-radius:9px;background:rgba(0,0,0,.35);transform:rotate(8deg)"></div></div><div style="position:absolute;left:72%;top:{{by3}}vmin;width:5vmin;height:7vmin;border-radius:50%;background:{{bean}};transform:rotate({{br3}}deg);opacity:{{bop}};box-shadow:inset -1vmin 0 0 rgba(0,0,0,.25)"><div style="position:absolute;left:50%;top:12%;bottom:12%;width:.6vmin;margin-left:-.3vmin;border-radius:9px;background:rgba(0,0,0,.35);transform:rotate(8deg)"></div></div><div style="position:absolute;left:30%;top:{{by4}}vmin;width:5vmin;height:7vmin;border-radius:50%;background:{{bean}};transform:rotate({{br4}}deg);opacity:{{bop}};box-shadow:inset -1vmin 0 0 rgba(0,0,0,.25)"><div style="position:absolute;left:50%;top:12%;bottom:12%;width:.6vmin;margin-left:-.3vmin;border-radius:9px;background:rgba(0,0,0,.35);transform:rotate(8deg)"></div></div><div style="position:absolute;left:62%;top:{{by5}}vmin;width:5vmin;height:7vmin;border-radius:50%;background:{{bean}};transform:rotate({{br5}}deg);opacity:{{bop}};box-shadow:inset -1vmin 0 0 rgba(0,0,0,.25)"><div style="position:absolute;left:50%;top:12%;bottom:12%;width:.6vmin;margin-left:-.3vmin;border-radius:9px;background:rgba(0,0,0,.35);transform:rotate(8deg)"></div></div>
+<div style="position:absolute;left:50%;bottom:{{stY}}vmin;width:2.4vmin;height:46vmin;margin-left:4vmin;background:repeating-linear-gradient(135deg,#fff 0 1.2vmin,#c8692c 1.2vmin 2.4vmin);border-radius:1vmin;transform:rotate(8deg);opacity:{{stOp}};z-index:1"></div>
+<div style="position:absolute;inset:0;clip-path:polygon(0 0,100% 0,90% 100%,10% 100%);background:rgba(255,255,255,.14);z-index:2">
+<div style="position:absolute;left:0;right:0;bottom:0;height:{{milk}}%;background:linear-gradient(#f4e6d0,#e8d2b2)"></div>
+<div style="position:absolute;left:0;right:0;bottom:{{cofB}}%;height:{{cof}}%;background:linear-gradient(#3b2112,#6b3d22 70%,rgba(107,61,34,0));filter:blur(.3vmin)"></div>
+<div style="position:absolute;left:18%;bottom:{{ice}}%;width:9vmin;height:9vmin;border-radius:1.4vmin;background:rgba(255,255,255,.55);border:.3vmin solid rgba(255,255,255,.8);transform:rotate(12deg);opacity:{{iceOp}}"></div>
+<div style="position:absolute;left:52%;bottom:{{ice2}}%;width:8vmin;height:8vmin;border-radius:1.4vmin;background:rgba(255,255,255,.5);border:.3vmin solid rgba(255,255,255,.8);transform:rotate(-16deg);opacity:{{iceOp}}"></div>
+<div style="position:absolute;inset:0;opacity:{{dew}};background-image:radial-gradient(.7vmin .9vmin at 20% 30%,rgba(255,255,255,.8) 60%,transparent),radial-gradient(.6vmin .8vmin at 70% 50%,rgba(255,255,255,.8) 60%,transparent),radial-gradient(.7vmin .9vmin at 40% 70%,rgba(255,255,255,.8) 60%,transparent),radial-gradient(.5vmin .7vmin at 82% 22%,rgba(255,255,255,.8) 60%,transparent)"></div></div>
+<div style="position:absolute;inset:0;clip-path:polygon(0 0,100% 0,90% 100%,10% 100%);border:0;box-shadow:inset 0 0 0 .6vmin rgba(255,255,255,.6);z-index:3"></div>
+<div style="position:absolute;left:8%;top:6%;width:2vmin;height:70%;border-radius:9px;background:linear-gradient(rgba(255,255,255,.7),transparent);z-index:3"></div>
+<div style="position:absolute;left:-8vmin;right:-8vmin;bottom:-3vmin;height:4vmin;border-radius:50%;background:rgba(0,0,0,.18);filter:blur(1vmin);z-index:0"></div></div>
+<div style="position:absolute;left:clamp(16px,5vw,64px);top:clamp(80px,14vh,140px);width:min(480px,calc(100vw - 32px));z-index:20;display:grid"><div style="grid-area:1/1;align-self:start;opacity:{{c1}};transform:translateY({{t1}}px);background:rgba(42,26,18,.55);backdrop-filter:blur(10px);padding:clamp(18px,3vw,28px);border-radius:20px;color:#f3e7d6;display:flex;flex-direction:column;gap:10px;align-items:flex-start"><span style="color:#f0a36b;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase">01 · Kebun Puntang</span><h1 style="margin:0;font-family:Fraunces;font-weight:500;font-size:clamp(28px,4.6vw,50px);line-height:1.04">Dipetik merah dari ketinggian 1.400 mdpl.</h1><p style="margin:0;line-height:1.6;opacity:.88">Kami membeli langsung dari petani mitra, harga adil tiap musim.</p></div><div style="grid-area:1/1;align-self:start;opacity:{{c2}};transform:translateY({{t2}}px);background:rgba(42,26,18,.55);backdrop-filter:blur(10px);padding:clamp(18px,3vw,28px);border-radius:20px;color:#f3e7d6;display:flex;flex-direction:column;gap:10px;align-items:flex-start"><span style="color:#f0a36b;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase">02 · Sangrai tiap Senin</span><h2 style="margin:0;font-family:Fraunces;font-weight:500;font-size:clamp(28px,4.6vw,50px);line-height:1.04">Hijau jadi cokelat, wanginya sampai jalan.</h2><p style="margin:0;line-height:1.6;opacity:.88">Disangrai dalam jumlah kecil supaya selalu segar.</p></div><div style="grid-area:1/1;align-self:start;opacity:{{c3}};transform:translateY({{t3}}px);background:rgba(42,26,18,.55);backdrop-filter:blur(10px);padding:clamp(18px,3vw,28px);border-radius:20px;color:#f3e7d6;display:flex;flex-direction:column;gap:10px;align-items:flex-start"><span style="color:#f0a36b;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase">03 · Susu segar dan gula aren</span><h2 style="margin:0;font-family:Fraunces;font-weight:500;font-size:clamp(28px,4.6vw,50px);line-height:1.04">Es kopi susu yang jadi alasan orang balik lagi.</h2><p style="margin:0;line-height:1.6;opacity:.88">Susu dari peternak Lembang, gula aren Ciamis.</p></div><div style="grid-area:1/1;align-self:start;opacity:{{c4}};transform:translateY({{t4}}px);background:rgba(42,26,18,.55);backdrop-filter:blur(10px);padding:clamp(18px,3vw,28px);border-radius:20px;color:#f3e7d6;display:flex;flex-direction:column;gap:10px;align-items:flex-start"><span style="color:#f0a36b;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase">04 · Siap diantar</span><h2 style="margin:0;font-family:Fraunces;font-weight:500;font-size:clamp(28px,4.6vw,50px);line-height:1.04">Satu gelas lagi, kami antar ke rumah.</h2><p style="margin:0;line-height:1.6;opacity:.88">Pesan lewat WhatsApp, sampai dalam 30 menit di Bandung Timur.</p><a class="lift" href="https://wa.me/6289683046641" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#c8692c;color:#fff;text-decoration:none;padding:15px 26px;border-radius:999px;font-weight:700;font-size:16px;min-height:48px;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.3z"/></svg>Pesan sekarang</a></div></div>
+</div></div>
+<div class="wrap sec gl"><div style="display:flex;flex-direction:column;gap:16px"><span style="color:#f0a36b;letter-spacing:2px;font-size:13px;font-weight:700">MENU</span><h2 style="margin:0;font-family:Fraunces;font-weight:500;font-size:clamp(32px,5vw,52px)">Yang paling sering dipesan</h2><div style="border-radius:24px;min-height:280px;position:relative;overflow:hidden;background:#6b4a34;"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div style="opacity:.5"><svg aria-hidden="true" width="96" height="96" viewBox="0 0 64 64" fill="none" stroke="#f3e7d6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 24h30v14a12 12 0 0 1-12 12h-6a12 12 0 0 1-12-12z"/><path d="M44 28h4a6 6 0 0 1 0 12h-4"/></svg></div></div><span style="position:absolute;left:14px;bottom:12px;right:14px;font:500 12px/1.3 system-ui,sans-serif;color:#f3e7d6;opacity:.85">Foto: es kopi susu di meja teras</span></div></div><div style="font-size:18px"><div class="mi" style="display:flex;justify-content:space-between;gap:12px;padding:18px 0;border-bottom:1px solid #4a3528"><span>Es Kopi Susu Teras</span><b>Rp 22.000</b></div><div class="mi" style="display:flex;justify-content:space-between;gap:12px;padding:18px 0;border-bottom:1px solid #4a3528"><span>V60 Puntang Natural</span><b>Rp 28.000</b></div><div class="mi" style="display:flex;justify-content:space-between;gap:12px;padding:18px 0;border-bottom:1px solid #4a3528"><span>Kopi Tubruk Malabar</span><b>Rp 15.000</b></div><div class="mi" style="display:flex;justify-content:space-between;gap:12px;padding:18px 0;border-bottom:1px solid #4a3528"><span>Cokelat Rempah</span><b>Rp 24.000</b></div><div class="mi" style="display:flex;justify-content:space-between;gap:12px;padding:18px 0;border-bottom:1px solid #4a3528"><span>Roti Bakar Srikaya</span><b>Rp 18.000</b></div><div class="mi" style="display:flex;justify-content:space-between;gap:12px;padding:18px 0;border-bottom:1px solid #4a3528"><span>Biji Kopi 200 g</span><b>Rp 85.000</b></div></div></div>
+<div class="wrap" style="padding-bottom:72px"><div class="row" style="background:#3a271c;border-radius:28px;padding:clamp(24px,4vw,44px)"><div><h3 style="margin:0;font-family:Fraunces;font-weight:500;font-size:30px">Jl. Contoh No. 12, Bandung</h3><p style="margin:8px 0 0;opacity:.8">Setiap hari 07.00 sampai 22.00</p></div><a class="lift" href="https://wa.me/6289683046641" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#c8692c;color:#fff;text-decoration:none;padding:15px 26px;border-radius:999px;font-weight:700;font-size:16px;min-height:48px;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.3z"/></svg>Tanya meja kosong</a></div></div>
+<div style="background:#1d120c;color:#b59a86"><div class="wrap row" style="padding-top:28px;padding-bottom:28px;font-size:14px"><span>© 2026 Kopi Teras</span><span>Website oleh Kapsio Digital</span></div></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+  state = { p: 0 };
+  renderVals() {
+    const p = this.state.p, N = 5;
+    const cl = (v) => Math.min(1, Math.max(0, v));
+    const seg = (a, b) => cl((p - a) / (b - a));
+    const r = (v) => Math.round(v * 100) / 100;
+    const hx = (s) => [1, 3, 5].map((i) => parseInt(s.slice(i, i + 2), 16));
+    const mix = (a, b, t) => { const x = hx(a), y = hx(b); return '#' + x.map((v, i) => Math.round(v + (y[i] - v) * t).toString(16).padStart(2, '0')).join(''); };
+    const fade = (a, b) => { const q = (b - a) * 0.25; return r(Math.min(seg(a, a + q), 1 - seg(b - q, b))); };
+    const ty = (o) => r((1 - o) * 24);
+    const bg = mix('#f3e7d6', '#2a1a12', seg(0.1, 0.45));
+    const fg = p < 0.25 ? '#2a1a12' : '#f3e7d6';
+    const fall = seg(0, 0.3);
+    const bean = mix('#8aa35a', '#4a2b1a', seg(0.2, 0.42));
+    const by = {}; [-60, -90, -75, -110, -130, -85].forEach((s, i) => { const e = [24, 30, 20, 28, 34, 22][i]; by['by' + i] = r(s + fall * (e - s)); by['br' + i] = r(i * 40 + fall * 360); });
+    const milk = r(seg(0.42, 0.66) * 62), cof = r(seg(0.62, 0.84) * 26);
+    const V = Object.assign({ bg, fg, bean, bop: r(1 - seg(0.42, 0.48)), milk, cof, cofB: r(milk - 4), ice: r(Math.max(6, milk + cof - 26)), ice2: r(Math.max(4, milk + cof - 32)), iceOp: r(seg(0.5, 0.58)), dew: r(seg(0.82, 0.95)), stY: r(70 - seg(0.84, 0.94) * 62), stOp: r(seg(0.84, 0.88)) }, by);
+    const c1 = r(1 - seg(0.19, 0.24));
+    const c2 = fade(0.22, 0.44);
+    const c3 = fade(0.42, 0.82);
+    const c4 = r(seg(0.8, 0.8500000000000001));
+    const capV = {c1, t1: ty(c1), c2, t2: ty(c2), c3, t3: ty(c3), c4, t4: ty(c4)};
+    Object.assign(V, capV);
+    return Object.assign({
+      pct: r(p * 100), hint: p < 0.03 ? 1 : 0,
+      onS: (e) => { const t = e.currentTarget; this._v = cl(t.scrollTop / (t.clientHeight * (N - 1))); if (!this._raf) { this._raf = requestAnimationFrame(() => { this._raf = 0; this.setState({ p: this._v }); }); } }
+    }, V);
+  }
+}
+</script>
+</body>
+</html>

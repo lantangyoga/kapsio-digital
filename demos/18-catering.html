@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catering Dapur Hijau</title>
+<script src="dc-lite.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+.up{animation:up .9s both cubic-bezier(.2,.8,.2,1)}
+.lift{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}.lift:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.16)}
+.wrap{max-width:1200px;margin:0 auto;padding-left:clamp(16px,4vw,40px);padding-right:clamp(16px,4vw,40px)}
+.g{display:grid;gap:clamp(14px,2vw,24px);grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.gs{display:grid;gap:clamp(12px,2vw,20px);grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.gl{display:grid;gap:clamp(24px,4vw,56px);grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));align-items:center}
+.row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.sec{padding-top:clamp(56px,8vw,96px);padding-bottom:clamp(56px,8vw,96px)}
+@media (max-width:700px){.hm{display:none!important}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.pk{border:2px solid;border-radius:16px;padding:16px;text-align:left;font:inherit;cursor:pointer;transition:background .25s,border-color .25s,transform .25s;min-height:48px}.pk:hover{transform:translateY(-3px)}
+input[type=range]{width:100%;accent-color:#1f5c3f;height:28px}
+@keyframes pop{from{transform:scale(.94);opacity:.4}to{transform:none;opacity:1}}.pop{animation:pop .35s both}
+@keyframes mq{to{transform:translateX(-50%)}}.mq{display:flex;width:max-content;animation:mq 22s linear infinite;white-space:nowrap}
+</style>
+</helmet>
+<div style="background:#fafdf9;color:#16281f;font-family:Poppins,sans-serif;overflow-x:hidden">
+<div style="background:#1f5c3f;color:#fff;overflow:hidden;padding:10px 0;font-size:14px"><div class="mq"><span>Diskon 10% untuk 100 porsi ke atas · Gratis ongkir se-Bandung Raya · Halal · &nbsp;</span><span>Diskon 10% untuk 100 porsi ke atas · Gratis ongkir se-Bandung Raya · Halal · &nbsp;</span></div></div>
+<div class="wrap row" style="padding-top:18px;padding-bottom:18px;"><b style="font-size:24px;color:#1f5c3f">Dapur Hijau</b><div class="hm" style="display:flex;gap:28px;font-size:15px;font-weight:500"><a href="#" style="color:#16281f;text-decoration:none">Paket</a><a href="#" style="color:#16281f;text-decoration:none">Menu</a><a href="#" style="color:#16281f;text-decoration:none">Klien</a></div><a href="https://wa.me/6289683046641" style="color:#1f5c3f;font-weight:600">0896 8304 6641</a></div>
+<div class="wrap gl" style="padding-bottom:72px;align-items:start">
+<div class="up" style="display:flex;flex-direction:column;gap:20px;padding-top:24px"><h1 style="margin:0;font-size:clamp(38px,5.6vw,58px);line-height:1.08;font-weight:700">Hitung catering acara Anda <span style="background:#f5c542;padding:0 8px">dalam 10 detik.</span></h1><p style="margin:0;font-size:18px;line-height:1.7;color:#3e5648">Pilih paket, geser jumlah porsi, harga langsung muncul. Pesanan terkirim ke WhatsApp lengkap dengan rinciannya.</p><div class="gs"><div style="border-radius:16px;min-height:160px;position:relative;overflow:hidden;background:#cfe1c0;"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div style="opacity:.5"><svg aria-hidden="true" width="96" height="96" viewBox="0 0 64 64" fill="none" stroke="#16281f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30h48a24 24 0 0 1-48 0z"/><path d="M22 22c0-6 6-6 6-12M34 22c0-6 6-6 6-12"/></svg></div></div><span style="position:absolute;left:14px;bottom:12px;right:14px;font:500 12px/1.3 system-ui,sans-serif;color:#16281f;opacity:.85">Foto: nasi box spesial</span></div><div style="border-radius:16px;min-height:160px;position:relative;overflow:hidden;background:#b9d4b0;"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div style="opacity:.5"><svg aria-hidden="true" width="96" height="96" viewBox="0 0 64 64" fill="none" stroke="#16281f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30h48a24 24 0 0 1-48 0z"/><path d="M22 22c0-6 6-6 6-12M34 22c0-6 6-6 6-12"/></svg></div></div><span style="position:absolute;left:14px;bottom:12px;right:14px;font:500 12px/1.3 system-ui,sans-serif;color:#16281f;opacity:.85">Foto: prasmanan syukuran</span></div></div></div>
+<div style="background:#fff;border-radius:28px;padding:clamp(20px,3vw,32px);box-shadow:0 24px 60px rgba(31,92,63,.15);display:flex;flex-direction:column;gap:16px">
+<b style="font-size:20px">1. Pilih paket</b><div class="gs"><sc-for list="{{pk}}" as="p" hint-placeholder-count="3"><button type="button" class="pk" onClick="{{p.pick}}" style="border-color:{{p.bd}};background:{{p.bg}}"><b style="display:block">{{p.t}}</b><span style="font-size:14px;color:#3e5648">{{p.h}}/porsi</span></button></sc-for></div>
+<label for="np" style="font-size:20px;font-weight:700">2. Jumlah porsi: <span style="color:#1f5c3f">{{n}}</span></label><input id="np" type="range" min="20" max="500" step="10" value="{{n}}" onInput="{{setn}}">
+<div class="row"><b style="font-size:20px">3. Tambah buah potong</b><button type="button" aria-label="Tambah buah potong" onClick="{{tg}}" style="width:48px;height:28px;border-radius:999px;border:0;background:{{buahBg}};position:relative;cursor:pointer;transition:background .25s"><span style="position:absolute;top:3px;left:{{buahX}}px;width:22px;height:22px;border-radius:50%;background:#fff;transition:left .25s"></span></button></div>
+<div style="background:#e8f3ea;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:8px;font-size:15px"><div class="row"><span>Paket</span><span>{{base}}</span></div><div class="row"><span>Buah potong</span><span>{{add}}</span></div><sc-if value="{{hasDisc}}" hint-placeholder-val="{{false}}"><div class="row pop" style="color:#1f5c3f;font-weight:600"><span>Diskon 10%</span><span>- {{disc}}</span></div></sc-if><sc-if value="{{noDisc}}" hint-placeholder-val="{{true}}"><div style="font-size:13px;color:#3e5648">Tambah sampai 100 porsi untuk diskon 10%</div></sc-if><div class="row" style="border-top:1px solid #cfe1d4;padding-top:10px"><b>Total</b><b class="pop" style="font-size:28px;color:#1f5c3f">{{tot}}</b></div></div>
+<a href="{{wa}}" style="background:#1f5c3f;color:#fff;text-align:center;padding:16px;border-radius:12px;font-weight:600;text-decoration:none">Kirim pesanan ke WhatsApp</a></div></div>
+<div style="background:#e8f3ea"><div class="wrap sec" style="text-align:center;display:flex;flex-direction:column;gap:18px;align-items:center"><span style="color:#3e5648">Dipercaya untuk acara di</span><div style="display:flex;gap:clamp(20px,5vw,56px);flex-wrap:wrap;justify-content:center;font-weight:700;font-size:20px;color:#8aa596"><span>PT Contoh</span><span>Bank Contoh</span><span>Sekolah Contoh</span><span>Kampus Contoh</span></div></div></div>
+<div style="background:#16281f;color:#cfe1d4"><div class="wrap row" style="padding-top:28px;padding-bottom:28px;font-size:14px"><span>© 2026 Catering Dapur Hijau</span><span>Website oleh Kapsio Digital</span></div></div></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1500}}'>
+class Component extends DCLogic {
+  state = { k: 1, n: 80, buah: true };
+  renderVals() {
+    const P = [['Nasi Box Hemat', 25000], ['Nasi Box Spesial', 35000], ['Prasmanan', 55000]];
+    const s = this.state, base = P[s.k][1] * s.n, add = s.buah ? 4000 * s.n : 0, disc = s.n >= 100 ? Math.round((base + add) * 0.1) : 0, tot = base + add - disc;
+    const f = (x) => 'Rp ' + x.toLocaleString('id-ID');
+    const msg = 'Halo, saya mau pesan ' + P[s.k][0] + ' ' + s.n + ' porsi' + (s.buah ? ' + buah potong' : '') + '. Estimasi ' + f(tot) + '.';
+    return { pk: P.map((x, i) => ({ t: x[0], h: f(x[1]), bd: i === s.k ? '#1f5c3f' : '#cfe1d4', bg: i === s.k ? '#e8f3ea' : '#fff', pick: () => this.setState({ k: i }) })),
+      n: s.n, setn: (e) => this.setState({ n: +e.target.value }), base: f(base), add: f(add), disc: f(disc), tot: f(tot), hasDisc: disc > 0, noDisc: disc === 0,
+      buahTxt: s.buah ? 'Ya' : 'Tidak', buahBg: s.buah ? '#1f5c3f' : '#cfe1d4', buahX: s.buah ? 22 : 2, tg: () => this.setState({ buah: !s.buah }),
+      wa: 'https://wa.me/6289683046641?text=' + encodeURIComponent(msg) };
+  }
+}
+</script>
+</body>
+</html>

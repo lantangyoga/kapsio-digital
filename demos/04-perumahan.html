@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perumahan Griya Asri</title>
+<script src="dc-lite.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap">
+<style>
+body{margin:0}
+*{box-sizing:border-box}
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+.up{animation:up .9s both cubic-bezier(.2,.8,.2,1)}
+.lift{transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}.lift:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.16)}
+.wrap{max-width:1200px;margin:0 auto;padding-left:clamp(16px,4vw,40px);padding-right:clamp(16px,4vw,40px)}
+.g{display:grid;gap:clamp(14px,2vw,24px);grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.gs{display:grid;gap:clamp(12px,2vw,20px);grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr))}
+.gl{display:grid;gap:clamp(24px,4vw,56px);grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));align-items:center}
+.row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.sec{padding-top:clamp(56px,8vw,96px);padding-bottom:clamp(56px,8vw,96px)}
+@media (max-width:700px){.hm{display:none!important}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+</style>
+</helmet>
+<div onScroll="{{onS}}" style="height:100vh;overflow-y:auto;overflow-x:hidden;background:#f4f1ea;color:#1d2b20;font-family:Inter,sans-serif">
+<div style="height:600vh;position:relative"><div style="position:sticky;top:0;height:100vh;overflow:hidden">
+<div style="position:absolute;left:0;top:0;height:4px;width:{{pct}}%;background:#2f5d3a;z-index:30"></div>
+<div style="position:absolute;left:50%;bottom:3vh;z-index:30;opacity:{{hint}};transition:opacity .4s;animation:bounce 1.6s infinite;font-size:13px;letter-spacing:2px;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:4px;text-shadow:0 1px 8px rgba(0,0,0,.35)"><span>Scroll ke bawah</span><span aria-hidden="true">↓</span></div>
+<div style="position:absolute;inset:0;background:linear-gradient({{skyT}},{{skyB}})"></div>
+<div style="position:absolute;inset:0;opacity:{{stars}};background-image:radial-gradient(1.5px 1.5px at 15% 20%,#fff 50%,transparent),radial-gradient(1.5px 1.5px at 40% 12%,#fff 50%,transparent),radial-gradient(2px 2px at 64% 26%,#fff 50%,transparent),radial-gradient(1.5px 1.5px at 82% 10%,#fff 50%,transparent),radial-gradient(1.5px 1.5px at 92% 34%,#fff 50%,transparent)"></div>
+<div style="position:absolute;width:14vmin;height:14vmin;border-radius:50%;right:12%;top:{{sunY}}%;background:{{sunC}};box-shadow:0 0 10vmin {{sunC}}"></div>
+<div style="position:absolute;left:-10%;right:-10%;bottom:14vh;height:14vh;border-radius:50% 50% 0 0;background:#8bbf7a;opacity:.7"></div>
+<div style="position:absolute;left:0;right:0;bottom:0;height:16vh;background:linear-gradient(#5f9e4f,#3f7a35)"></div>
+<div style="position:absolute;right:6vw;bottom:16vh;width:4vmin;height:52vh;opacity:{{crane}};background:repeating-linear-gradient(45deg,#e9b44c 0 1vmin,transparent 1vmin 2.5vmin);border:.5vmin solid #e9b44c"><div style="position:absolute;right:0;top:0;width:40vmin;height:2.4vmin;background:#e9b44c"></div><div style="position:absolute;right:30vmin;top:2.4vmin;width:.4vmin;height:12vh;background:#333"></div></div>
+<div style="position:absolute;left:50%;bottom:16vh;width:62vmin;height:56vmin;margin-left:-31vmin;z-index:3">
+<div style="position:absolute;left:0;right:0;bottom:0;height:3vmin;background:#9a9a92;transform:scaleX({{fd}})"></div>
+<div style="position:absolute;left:3vmin;bottom:3vmin;width:56vmin;height:24vmin;background:#f3ebde;transform:scaleY({{wl}});transform-origin:50% 100%;overflow:hidden">
+<div style="position:absolute;inset:0;opacity:{{brick}};background:repeating-linear-gradient(0deg,#c47a52 0 2vmin,#a9603e 2vmin 2.3vmin)"></div>
+<div style="position:absolute;left:5vmin;top:6vmin;width:9vmin;height:8vmin;background:{{wc}};border:.6vmin solid #fff;box-shadow:0 0 {{glow}}vmin #ffd76a;opacity:{{win}}"></div><div style="position:absolute;left:40vmin;top:6vmin;width:9vmin;height:8vmin;background:{{wc}};border:.6vmin solid #fff;box-shadow:0 0 {{glow}}vmin #ffd76a;opacity:{{win}}"></div><div style="position:absolute;left:24vmin;bottom:0;width:9vmin;height:16vmin;background:#7a4f32;border:.6vmin solid #fff;border-bottom:0;opacity:{{win}}"></div></div>
+<div style="position:absolute;left:30vmin;bottom:27vmin;width:29vmin;height:15vmin;background:#e5d8c4;transform:scaleY({{wl2}});transform-origin:50% 100%"><div style="position:absolute;left:10vmin;top:3.5vmin;width:9vmin;height:8vmin;background:{{wc}};border:.6vmin solid #fff;box-shadow:0 0 {{glow}}vmin #ffd76a;opacity:{{win}}"></div></div>
+<div style="position:absolute;left:-2vmin;bottom:26vmin;width:38vmin;height:15vmin;background:#a8432f;clip-path:polygon(50% 0,100% 100%,0 100%);transform:translateY({{rf}}vh);opacity:{{rfo}}"></div>
+<div style="position:absolute;left:27vmin;bottom:41vmin;width:35vmin;height:3vmin;background:#3a3a3a;transform:translateY({{rf}}vh);opacity:{{rfo}}"></div>
+<div style="position:absolute;inset:-2vmin;opacity:{{scaf}};background:repeating-linear-gradient(90deg,transparent 0 7vmin,rgba(120,120,120,.8) 7vmin 7.5vmin),repeating-linear-gradient(0deg,transparent 0 8vmin,rgba(120,120,120,.8) 8vmin 8.5vmin)"></div></div>
+<div style="position:absolute;left:6vw;bottom:16vh;width:16vmin;height:26vmin;transform:scale({{tr}});transform-origin:50% 100%;z-index:4"><div style="position:absolute;left:50%;bottom:0;width:2.4vmin;height:10vmin;margin-left:-1.2vmin;background:#6b4a2f"></div><div style="position:absolute;left:0;right:0;top:0;height:18vmin;border-radius:50%;background:radial-gradient(circle at 35% 35%,#7cc46a,#3f7d36)"></div></div><div style="position:absolute;right:10vw;bottom:16vh;width:16vmin;height:26vmin;transform:scale({{tr}});transform-origin:50% 100%;z-index:4"><div style="position:absolute;left:50%;bottom:0;width:2.4vmin;height:10vmin;margin-left:-1.2vmin;background:#6b4a2f"></div><div style="position:absolute;left:0;right:0;top:0;height:18vmin;border-radius:50%;background:radial-gradient(circle at 35% 35%,#7cc46a,#3f7d36)"></div></div>
+<div class="wrap row" style="position:absolute;left:0;right:0;top:0;padding-top:16px;z-index:25;color:{{fg}}"><b style="font-family:'DM Serif Display';font-size:26px">Griya Asri</b><span class="hm" style="font-size:14px">Cileunyi · 12 menit dari Tol Cileunyi</span><a href="https://wa.me/6289683046641" style="background:#2f5d3a;color:#fff;font-weight:700;padding:12px 20px;border-radius:999px;text-decoration:none;min-height:44px;display:inline-flex;align-items:center">Jadwalkan survei</a></div>
+<div style="position:absolute;left:clamp(16px,5vw,64px);top:clamp(80px,14vh,140px);width:min(480px,calc(100vw - 32px));z-index:20;display:grid"><div style="grid-area:1/1;align-self:start;opacity:{{c1}};transform:translateY({{t1}}px);background:rgba(255,255,255,.78);backdrop-filter:blur(10px);padding:clamp(18px,3vw,28px);border-radius:20px;color:#1d2b20;display:flex;flex-direction:column;gap:10px;align-items:flex-start"><span style="color:#2f5d3a;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase">01 · Lahan siap</span><h1 style="margin:0;font-family:'DM Serif Display';font-weight:400;font-size:clamp(28px,4.6vw,50px);line-height:1.04">Bangun rumah impian di lahan bersertifikat SHM.</h1><p style="margin:0;line-height:1.6;opacity:.88">Perumahan 86 unit di Cileunyi, kontur rata dan bebas banjir.</p></div><div style="grid-area:1/1;align-self:start;opacity:{{c2}};transform:translateY({{t2}}px);background:rgba(255,255,255,.78);backdrop-filter:blur(10px);padding:clamp(18px,3vw,28px);border-radius:20px;color:#1d2b20;display:flex;flex-direction:column;gap:10px;align-items:flex-start"><span style="color:#2f5d3a;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase">02 · Struktur SNI</span><h2 style="margin:0;font-family:'DM Serif Display';font-weight:400;font-size:clamp(28px,4.6vw,50px);line-height:1.04">Pondasi cakar ayam, bata merah, besi SNI.</h2><p style="margin:0;line-height:1.6;opacity:.88">Spesifikasi lengkap tertulis di perjanjian, bukan hanya di brosur.</p></div><div style="grid-area:1/1;align-self:start;opacity:{{c3}};transform:translateY({{t3}}px);background:rgba(255,255,255,.78);backdrop-filter:blur(10px);padding:clamp(18px,3vw,28px);border-radius:20px;color:#1d2b20;display:flex;flex-direction:column;gap:10px;align-items:flex-start"><span style="color:#2f5d3a;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase">03 · Atap dan finishing</span><h2 style="margin:0;font-family:'DM Serif Display';font-weight:400;font-size:clamp(28px,4.6vw,50px);line-height:1.04">Rangka baja ringan, genteng beton, plafon gypsum.</h2><p style="margin:0;line-height:1.6;opacity:.88">Progres pembangunan dikirim tiap minggu.</p></div><div style="grid-area:1/1;align-self:start;opacity:{{c4}};transform:translateY({{t4}}px);background:rgba(255,255,255,.78);backdrop-filter:blur(10px);padding:clamp(18px,3vw,28px);border-radius:20px;color:#1d2b20;display:flex;flex-direction:column;gap:10px;align-items:flex-start"><span style="color:#2f5d3a;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase">04 · Lingkungan hijau</span><h2 style="margin:0;font-family:'DM Serif Display';font-weight:400;font-size:clamp(28px,4.6vw,50px);line-height:1.04">30% lahan untuk taman dan jalur sepeda.</h2><p style="margin:0;line-height:1.6;opacity:.88">Satu gerbang dengan satpam 24 jam.</p></div><div style="grid-area:1/1;align-self:start;opacity:{{c5}};transform:translateY({{t5}}px);background:rgba(255,255,255,.78);backdrop-filter:blur(10px);padding:clamp(18px,3vw,28px);border-radius:20px;color:#1d2b20;display:flex;flex-direction:column;gap:10px;align-items:flex-start"><span style="color:#2f5d3a;font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase">05 · Siap huni</span><h2 style="margin:0;font-family:'DM Serif Display';font-weight:400;font-size:clamp(28px,4.6vw,50px);line-height:1.04">Rumah Anda, mulai Rp [HARGA] juta.</h2><p style="margin:0;line-height:1.6;opacity:.88">DP 0% untuk 10 pembeli pertama, KPR dibantu sampai akad.</p><a class="lift" href="https://wa.me/6289683046641" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#2f5d3a;color:#fff;text-decoration:none;padding:15px 26px;border-radius:999px;font-weight:700;font-size:16px;min-height:48px;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.3z"/></svg>Tanya unit tersisa</a></div></div>
+</div></div>
+<div class="wrap sec" style="display:flex;flex-direction:column;gap:28px"><div class="row" style="align-items:flex-end"><h2 style="margin:0;font-family:'DM Serif Display';font-weight:400;font-size:clamp(32px,5vw,52px)">Pilih tipe rumah</h2><span style="color:#56665a">Sisa 14 unit tahap 2</span></div><div class="g"><div class="lift" style="background:#fff;border-radius:24px;overflow:hidden;display:flex;flex-direction:column"><div style="border-radius:0px;min-height:200px;position:relative;overflow:hidden;background:#dfe9d8;"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div style="opacity:.5"><svg aria-hidden="true" width="96" height="96" viewBox="0 0 64 64" fill="none" stroke="#1d2b20" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 30 32 12l22 18v24H10z"/><path d="M26 54V38h12v16"/></svg></div></div><span style="position:absolute;left:14px;bottom:12px;right:14px;font:500 12px/1.3 system-ui,sans-serif;color:#1d2b20;opacity:.85">Foto: tampak depan tipe 36/72</span></div><div style="padding:22px;display:flex;flex-direction:column;gap:6px"><b style="font-family:'DM Serif Display';font-size:26px;font-weight:400">Tipe 36/72</b><span style="color:#56665a">2 kamar tidur · 1 kamar mandi</span><b style="font-size:20px;color:#2f5d3a">Rp [HARGA] jt</b></div></div><div class="lift" style="background:#fff;border-radius:24px;overflow:hidden;display:flex;flex-direction:column"><div style="border-radius:0px;min-height:200px;position:relative;overflow:hidden;background:#e9dfc9;"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div style="opacity:.5"><svg aria-hidden="true" width="96" height="96" viewBox="0 0 64 64" fill="none" stroke="#1d2b20" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 30 32 12l22 18v24H10z"/><path d="M26 54V38h12v16"/></svg></div></div><span style="position:absolute;left:14px;bottom:12px;right:14px;font:500 12px/1.3 system-ui,sans-serif;color:#1d2b20;opacity:.85">Foto: tampak depan tipe 45/90</span></div><div style="padding:22px;display:flex;flex-direction:column;gap:6px"><b style="font-family:'DM Serif Display';font-size:26px;font-weight:400">Tipe 45/90</b><span style="color:#56665a">2 kamar tidur · carport</span><b style="font-size:20px;color:#2f5d3a">Rp [HARGA] jt</b></div></div><div class="lift" style="background:#fff;border-radius:24px;overflow:hidden;display:flex;flex-direction:column"><div style="border-radius:0px;min-height:200px;position:relative;overflow:hidden;background:#d6e1ea;"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center"><div style="opacity:.5"><svg aria-hidden="true" width="96" height="96" viewBox="0 0 64 64" fill="none" stroke="#1d2b20" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 30 32 12l22 18v24H10z"/><path d="M26 54V38h12v16"/></svg></div></div><span style="position:absolute;left:14px;bottom:12px;right:14px;font:500 12px/1.3 system-ui,sans-serif;color:#1d2b20;opacity:.85">Foto: tampak depan tipe 60/105</span></div><div style="padding:22px;display:flex;flex-direction:column;gap:6px"><b style="font-family:'DM Serif Display';font-size:26px;font-weight:400">Tipe 60/105</b><span style="color:#56665a">3 kamar tidur · 2 lantai</span><b style="font-size:20px;color:#2f5d3a">Rp [HARGA] jt</b></div></div></div></div>
+<div style="background:#2f5d3a;color:#fff"><div class="wrap sec gs" style="text-align:center"><div><b style="font-family:'DM Serif Display';font-size:44px">SHM</b><div>sertifikat pecah per unit</div></div><div><b style="font-family:'DM Serif Display';font-size:44px">12 mnt</b><div>ke gerbang tol</div></div><div><b style="font-family:'DM Serif Display';font-size:44px">5 mnt</b><div>ke sekolah dan pasar</div></div><div><b style="font-family:'DM Serif Display';font-size:44px">24 jam</b><div>keamanan satu gerbang</div></div></div></div>
+<div style="background:#1d2b20;color:#b9c9bc"><div class="wrap row" style="padding-top:28px;padding-bottom:28px;font-size:14px"><span>© 2026 Griya Asri Cileunyi</span><span>Website oleh Kapsio Digital</span></div></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+  state = { p: 0 };
+  renderVals() {
+    const p = this.state.p, N = 6;
+    const cl = (v) => Math.min(1, Math.max(0, v));
+    const seg = (a, b) => cl((p - a) / (b - a));
+    const r = (v) => Math.round(v * 100) / 100;
+    const hx = (s) => [1, 3, 5].map((i) => parseInt(s.slice(i, i + 2), 16));
+    const mix = (a, b, t) => { const x = hx(a), y = hx(b); return '#' + x.map((v, i) => Math.round(v + (y[i] - v) * t).toString(16).padStart(2, '0')).join(''); };
+    const fade = (a, b) => { const q = (b - a) * 0.25; return r(Math.min(seg(a, a + q), 1 - seg(b - q, b))); };
+    const ty = (o) => r((1 - o) * 24);
+    const skyT = p < 0.7 ? mix('#7fc4f2', '#f6a07a', seg(0.45, 0.7)) : mix('#f6a07a', '#141c3a', seg(0.7, 0.92));
+    const skyB = p < 0.7 ? mix('#d9efff', '#ffd9a8', seg(0.45, 0.7)) : mix('#ffd9a8', '#3a3f6e', seg(0.7, 0.92));
+    const night = seg(0.78, 0.95);
+    const V = { skyT, skyB, stars: r(seg(0.85, 1)), sunY: r(8 + seg(0.4, 0.85) * 52), sunC: mix('#fff3c2', '#ff8a4c', seg(0.45, 0.8)), fd: r(seg(0, 0.14)), wl: r(seg(0.12, 0.36)), wl2: r(seg(0.3, 0.44)), brick: r(1 - seg(0.36, 0.48)), win: r(seg(0.44, 0.52)), rf: r(-60 * (1 - seg(0.44, 0.6))), rfo: r(seg(0.44, 0.5)), scaf: fade(0.1, 0.58), crane: r(1 - seg(0.56, 0.66)), tr: r(seg(0.6, 0.76)), wc: mix('#9cc5e2', '#ffd76a', night), glow: r(night * 5), fg: p > 0.8 ? '#fff' : '#1d2b20' };
+    const c1 = r(1 - seg(0.11, 0.16));
+    const c2 = fade(0.14, 0.4);
+    const c3 = fade(0.38, 0.62);
+    const c4 = fade(0.6, 0.82);
+    const c5 = r(seg(0.8, 0.8500000000000001));
+    const capV = {c1, t1: ty(c1), c2, t2: ty(c2), c3, t3: ty(c3), c4, t4: ty(c4), c5, t5: ty(c5)};
+    Object.assign(V, capV);
+    return Object.assign({
+      pct: r(p * 100), hint: p < 0.03 ? 1 : 0,
+      onS: (e) => { const t = e.currentTarget; this._v = cl(t.scrollTop / (t.clientHeight * (N - 1))); if (!this._raf) { this._raf = requestAnimationFrame(() => { this._raf = 0; this.setState({ p: this._v }); }); } }
+    }, V);
+  }
+}
+</script>
+</body>
+</html>
