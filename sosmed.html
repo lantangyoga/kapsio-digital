@@ -631,5 +631,6 @@ addEventListener('scroll',function(){requestAnimationFrame(tick)},{passive:true}
 <script>
 document.querySelectorAll('.igv[data-embed] button').forEach(function(b){b.onclick=function(){var v=b.closest('.igv'),f=document.createElement('iframe');f.src=v.getAttribute('data-embed');f.loading='lazy';f.title='Konten Instagram';f.setAttribute('allowfullscreen','');v.innerHTML='';v.appendChild(f);v.style.aspectRatio='9/15'}});
 </script>
+<script src="menu.js"></script>
 </body>
 </html>
