@@ -21,6 +21,7 @@
       ["💬", "Konsultasi gratis", "Isi formulir singkat", "sosmed.html#kontak"]
     ]},
     "digital-marketing.html": { t: "Digital Marketing", d: "Iklan yang mendatangkan chat WhatsApp.", items: [
+      ["📈", "Hasil iklan nyata", "7.600+ chat, Rp72 juta+ dikelola", "digital-marketing.html#hasil"],
       ["📣", "Meta Ads, Google, TikTok", "Semua jalur iklan dan pelacakan", "digital-marketing.html#layanan"],
       ["🏷️", "Paket dan harga", "Langkah, Laju, Melesat", "digital-marketing.html#paket"],
       ["⭐", "Portofolio", "Konten yang sudah terbukti ditonton", "digital-marketing.html#portofolio"],
@@ -40,20 +41,20 @@
     ".kd-panel.on{display:block;animation:kdIn .18s ease-out}" +
     "@keyframes kdIn{from{opacity:0;transform:translateY(-6px)}}" +
     ".kd-box{max-width:1080px;margin:8px auto 0;background:#fff;color:#0f172a;border-radius:20px;box-shadow:0 30px 70px rgba(10,22,48,.35);display:grid;grid-template-columns:1fr 250px;overflow:hidden;font-family:inherit}" +
-    ".kd-list{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:16px}" +
-    ".kd-list a{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border-radius:14px;text-decoration:none;color:inherit}" +
+    ".kd-list{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 6px;padding:14px;align-content:start}" +
+    ".kd-list a{display:block;padding:8px 12px;border-radius:12px;text-decoration:none;color:inherit}" +
     ".kd-list a:hover,.kd-list a:focus-visible{background:#f2f5ff;outline:none}" +
     ".kd-list i{font-style:normal;font-size:20px;line-height:1.2}" +
-    ".kd-list b{display:block;font-size:.92rem}.kd-list small{display:block;color:#5b6478;font-size:.8rem;line-height:1.35;margin-top:2px}" +
+    ".kd-list b{display:block;font-size:.92rem;line-height:1.3}.kd-list small{display:block;color:#5b6478;font-size:.8rem;line-height:1.3;margin-top:1px}" +
     ".kd-side{background:linear-gradient(160deg,#13244a,#0a1630);color:#fff;padding:20px;display:flex;flex-direction:column;gap:10px}" +
     ".kd-side b{font-size:1.1rem}.kd-side p{margin:0;color:#c7d2f5;font-size:.88rem;line-height:1.5}" +
-    ".kd-side .kd-go{margin-top:auto;display:block;text-align:center;background:#fff;color:#0a1630;font-weight:800;padding:.7em;border-radius:99px;text-decoration:none}" +
-    ".kd-side .kd-wa{display:block;text-align:center;background:#25d366;color:#052e16;font-weight:800;padding:.7em;border-radius:99px;text-decoration:none}" +
+    ".kd-side .kd-go{margin-top:auto;display:block;text-align:center;background:#fff;color:#0a1630;font-weight:800;font-size:.88rem;padding:.65em .8em;border-radius:99px;text-decoration:none}" +
+    ".kd-side .kd-wa{display:block;text-align:center;background:#25d366;color:#052e16;font-weight:800;font-size:.88rem;padding:.65em .8em;border-radius:99px;text-decoration:none}" +
     ".tabs a .kd-c,.tb a .kd-c{display:inline-block;margin-left:4px;font-size:.7em;transition:transform .2s;opacity:.8}" +
     ".tabs a.kd-open .kd-c,.tb a.kd-open .kd-c{transform:rotate(180deg)}" +
     ".tabs a.kd-open:not(.on){background:rgba(255,255,255,.16);color:#fff}" +
     ".kd-dim{position:fixed;inset:0;z-index:45;background:rgba(10,22,48,.25);display:none}.kd-dim.on{display:block}" +
-    "@media(max-width:900px){.kd-box{grid-template-columns:1fr;max-height:calc(100vh - 150px);overflow:auto}.kd-list{grid-template-columns:1fr 1fr;padding:10px}.kd-list a{padding:9px}.kd-side{padding:14px}.kd-side p{display:none}}" +
+    "@media(max-width:900px){.kd-box{grid-template-columns:1fr;max-height:calc(100vh - 150px);overflow:auto}.kd-list{grid-template-columns:1fr 1fr;padding:10px}.kd-list a{padding:7px 9px}.kd-side{padding:14px}.kd-side p{display:none}}" +
     "@media(max-width:520px){.kd-list{grid-template-columns:1fr}}";
   var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
 
@@ -72,7 +73,7 @@
   function build(k) {
     var m = MENU[k]; if (!m) return false;
     var list = m.items.map(function (x) {
-      return '<a role="menuitem" href="' + x[3] + '"><i>' + x[0] + '</i><span><b>' + x[1] + '</b><small>' + x[2] + '</small></span></a>';
+      return '<a role="menuitem" href="' + x[3] + '"><span><b>' + x[1] + '</b><small>' + x[2] + '</small></span></a>';
     }).join("");
     var msg = encodeURIComponent("Halo Kapsio Digital, saya mau tanya soal " + m.t.toLowerCase() + ".");
     panel.innerHTML = '<div class="kd-box"><div class="kd-list">' + list + '</div><div class="kd-side"><b>' + m.t + '</b><p>' + m.d + '</p>' +
