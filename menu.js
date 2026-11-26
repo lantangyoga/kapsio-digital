@@ -20,9 +20,9 @@
       ["❓", "Tanya jawab", "Kontrak, akses akun, syuting", "sosmed.html#faq"],
       ["💬", "Konsultasi gratis", "Isi formulir singkat", "sosmed.html#kontak"]
     ]},
-    "digital-marketing.html": { t: "Digital Marketing", d: "Iklan yang mendatangkan chat WhatsApp.", items: [
-      ["📈", "Hasil iklan nyata", "7.600+ chat, Rp72 juta+ dikelola", "digital-marketing.html#hasil"],
-      ["📣", "Meta Ads, Google, TikTok", "Semua jalur iklan dan pelacakan", "digital-marketing.html#layanan"],
+    "digital-marketing.html": { t: "Meta Ads", d: "Iklan Facebook dan Instagram yang mendatangkan chat WhatsApp.", items: [
+      ["📈", "Hasil iklan nyata", "Dashboard asli, 7.600+ chat", "digital-marketing.html#hasil"],
+      ["📣", "Layanan iklan", "Meta Ads, Pixel, tindak lanjut WhatsApp", "digital-marketing.html#layanan"],
       ["🏷️", "Paket dan harga", "Langkah, Laju, Melesat", "digital-marketing.html#paket"],
       ["⭐", "Portofolio", "Konten yang sudah terbukti ditonton", "digital-marketing.html#portofolio"],
       ["🪜", "Cara kerja", "Dari audit sampai laporan", "digital-marketing.html#proses"],

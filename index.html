@@ -354,7 +354,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 <header class="nav">
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Kapsio Digital"><img src="assets/logo-horizontal-putih.svg" alt="Kapsio Digital" width="150" height="40"></a>
-    <nav class="tabs" aria-label="Layanan"><a href="index.html" class="on" aria-current="page"><span class="d">Jasa </span>Website</a><a href="sosmed.html"><span class="d">Kelola </span>Sosmed</a><a href="digital-marketing.html"><span class="d">Digital </span>Marketing</a><a href="portofolio.html">Portofolio</a></nav>
+    <nav class="tabs" aria-label="Layanan"><a href="index.html" class="on" aria-current="page"><span class="d">Jasa </span>Website</a><a href="sosmed.html"><span class="d">Kelola </span>Sosmed</a><a href="digital-marketing.html">Meta Ads</a><a href="portofolio.html">Portofolio</a></nav>
     <a class="btn btn-wa wa-link" data-msg="Halo Kapsio Digital, saya mau konsultasi.">Chat CS</a>
   </div>
 </header>
@@ -584,7 +584,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
       <label for="f_wa">Nomor WhatsApp</label><input id="f_wa" name="wa" type="tel" inputmode="tel" autocomplete="tel" required maxlength="20" placeholder="0812xxxxxxx">
       <label for="f_usaha">Jenis usaha</label><input id="f_usaha" name="usaha" maxlength="80" placeholder="Contoh: toko kue, bengkel, kontraktor">
       <label for="f_butuh">Yang kamu butuhkan</label>
-      <select id="f_butuh" name="butuh"><option>Rintis (1 halaman)</option><option>Tumbuh (5 halaman)</option><option>Juara (12 halaman)</option><option>Toko online</option><option>Animasi atau 3D</option><option>Kelola sosmed</option><option>Iklan / digital marketing</option><option>Jaga (perawatan website)</option><option>Audit gratis</option><option>Belum tahu, mau konsultasi dulu</option></select>
+      <select id="f_butuh" name="butuh"><option>Rintis (1 halaman)</option><option>Tumbuh (5 halaman)</option><option>Juara (12 halaman)</option><option>Toko online</option><option>Animasi atau 3D</option><option>Kelola sosmed</option><option>Iklan Meta Ads</option><option>Jaga (perawatan website)</option><option>Audit gratis</option><option>Belum tahu, mau konsultasi dulu</option></select>
       <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
       <button class="btn btn-wa" type="submit">Kirim dan lanjut ke WhatsApp</button>
       <p id="fmsg" role="status"></p>
@@ -596,9 +596,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
 
 <footer>
   <div class="wrap">
-    <div><img src="assets/logo-tagline-putih.svg" alt="Kapsio Digital, usaha kecil tampil besar" width="220" height="84" style="height:64px;width:auto;display:block;margin-bottom:8px" loading="lazy">Website, sosmed, dan digital marketing untuk UMKM</div>
+    <div><img src="assets/logo-tagline-putih.svg" alt="Kapsio Digital, usaha kecil tampil besar" width="220" height="84" style="height:64px;width:auto;display:block;margin-bottom:8px" loading="lazy">Website, sosmed, dan Meta Ads untuk UMKM</div>
     <div style="text-align:right">© <span id="yr"></span> Kapsio Digital. Semua hak dilindungi.
-      <div class="flinks" style="justify-content:flex-end"><a href="index.html">Jasa website</a><a href="sosmed.html">Kelola sosmed</a><a href="digital-marketing.html">Digital marketing</a><a href="portofolio.html">Portofolio</a><a class="wa-link" data-msg="Halo Kapsio Digital, saya mau tanya soal website.">WhatsApp: <span id="waShow"></span></a><a id="igLink" hidden target="_blank" rel="noopener"></a></div></div>
+      <div class="flinks" style="justify-content:flex-end"><a href="index.html">Jasa website</a><a href="sosmed.html">Kelola sosmed</a><a href="digital-marketing.html">Meta Ads</a><a href="portofolio.html">Portofolio</a><a class="wa-link" data-msg="Halo Kapsio Digital, saya mau tanya soal website.">WhatsApp: <span id="waShow"></span></a><a id="igLink" hidden target="_blank" rel="noopener"></a></div></div>
   </div>
 </footer>
 
@@ -662,7 +662,7 @@ var QA=[
  {q:"Apa bedanya tiap paket?",a:"Rintis 1 halaman untuk yang baru mulai. Tumbuh 5 halaman untuk tampil lengkap, sudah ada animasi ringan. Juara 12 halaman dengan formulir booking dan optimasi Google lanjutan. Toko untuk jualan online dengan keranjang belanja yang masuk ke WhatsApp. Efek animasi, fitur interaktif, dan 3D bisa ditambahkan, biayanya dihitung sesuai kebutuhan."},
  {q:"Berapa lama jadinya?",a:"Sejak bahan lengkap: Rintis 3 hari kerja, Tumbuh 7 hari kerja, Juara dan Toko 14 hari kerja. Kalau ada tambahan animasi atau 3D, CS beri perkiraan sebelum mulai."},
  {q:"Berapa harga kelola sosmed?",a:"Kelola Instagram dan TikTok per bulan: Hadir "+hp("sos1")+" (12 konten), Aktif "+hp("sos2")+" (20 konten termasuk 8 Reels), Bintang "+hp("sos3")+" (30 konten termasuk 15 Reels). Detailnya ada di tab Kelola Sosmed."},
- {q:"Bisa bantu iklan Meta Ads?",a:"Bisa. Kami pasang dan kelola iklan Facebook, Instagram, Google, sampai TikTok. Jasa kelola mulai "+hp("ads1")+" per bulan, budget iklan dibayar langsung ke Meta atau Google dari akunmu sendiri. Detailnya di tab Digital Marketing."},
+ {q:"Bisa bantu iklan Meta Ads?",a:"Bisa. Kami pasang dan kelola iklan Facebook, Instagram, Google, sampai TikTok. Jasa kelola mulai "+hp("ads1")+" per bulan, budget iklan dibayar langsung ke Meta atau Google dari akunmu sendiri. Detailnya di tab Meta Ads."},
  {q:"Saya belum punya logo dan foto",a:"Tidak masalah. Kirim yang ada dulu, kami bantu merapikan dan beri saran bahan tambahan."},
  {q:"Bisa untuk jualan produk?",a:"Bisa. Kami buatkan katalog produk, pelanggan memesan langsung lewat tombol WhatsApp."},
  {q:"Bayarnya gimana?",a:"DP 50% di awal, pelunasan setelah kamu puas dengan hasilnya. Bisa QRIS, transfer bank, atau e-wallet, dan ada invoice serta kuitansi di setiap pembayaran."},
@@ -758,6 +758,6 @@ if(st!==last){last=st;for(var i=1;i<N;i++)sc.classList.toggle('s'+i,st>=i);caps.
 hint.style.opacity=p>.03?0:1}
 addEventListener('scroll',function(){requestAnimationFrame(tick)},{passive:true});addEventListener('resize',tick);tick()})();
 </script>
-<script src="menu.js"></script>
+<script src="menu.js?v=3"></script>
 </body>
 </html>
